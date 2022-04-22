@@ -1,0 +1,27 @@
+{{define "header"}}
+
+<header>
+    <link rel="stylesheet" href="/css/headerStyle.css">
+    <link rel="shortcut icon" href="/resources/favicon.ico">
+    <link rel="stylesheet" href="/resources/fontAwesome/css/all.css">
+    <a href="/" id="logo">
+        <img src="/resources/logo.png" width="97" height="52">
+    </a>
+    {{ if .}}
+        <div id="menu_button" onclick="show_menu()">
+            <div class="menu_button_stick"></div>
+            <div class="menu_button_stick"></div>
+            <div class="menu_button_stick"></div>
+        </div>
+        <div class="hide" id="box_menu">
+            <span id="show_status">Добро пожаловать!</span>
+            <hr>
+            <div id="admin_panel">
+                <a href="/adminPanel">Панель управления</a><br>
+            </div>
+        </div>
+        <script src="/js/general.js"></script>
+        <script src="/js/headerScript.js"></script>
+    {{ end }}
+</header>
+{{end}}

@@ -1,0 +1,171 @@
+CREATE TABLE public."Listeners" (
+	"Id" serial NOT NULL,
+	"Surname" VARCHAR(255) NOT NULL,
+	"Name" VARCHAR(255) NOT NULL,
+	"Patronymic" VARCHAR(255) NOT NULL,
+	"Telephone" VARCHAR(255) NOT NULL,
+	"Education" VARCHAR(255) NOT NULL,
+	"Program_id" integer NOT NULL,
+	"E-mail" VARCHAR(255) NOT NULL,
+	"Registration_date" VARCHAR(255) NOT NULL,
+	"Birth_date" VARCHAR(255) NOT NULL,
+	"Listener_status" integer NOT NULL,
+	CONSTRAINT "Listeners_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Program_passport" (
+	"Id" serial NOT NULL,
+	"Title" VARCHAR(255) NOT NULL,
+	"Program_level_id" integer NOT NULL,
+	"Type_program_id" integer NOT NULL,
+	"Direction_study_id" integer NOT NULL,
+	"Training_form_id" integer NOT NULL,
+	"Size_program" VARCHAR(255) NOT NULL,
+	"Length" VARCHAR(255) NOT NULL,
+	"Price" VARCHAR(255) NOT NULL,
+	"Place_id" integer NOT NULL,
+	"Minimum_group_size" VARCHAR(255) NOT NULL,
+	"Start_date" VARCHAR(255) DEFAULT '',
+	"Time_period" VARCHAR(255) DEFAULT '',
+	"Issued_document_id" integer NOT NULL,
+	"Requirements_listeners_id" integer NOT NULL,
+	"Program_status" integer NOT NULL,
+	CONSTRAINT "Program_passport_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE public."Admin" (
+	"Id" serial NOT NULL,
+	"Login" VARCHAR(255) NOT NULL,
+	"Password" VARCHAR(255) NOT NULL,
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE public."Type_program_list" (
+	"Id" serial NOT NULL,
+	"Type" TEXT NOT NULL,
+	CONSTRAINT "Type_program_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Training_form_list" (
+	"Id" serial NOT NULL,
+	"Training_form" TEXT NOT NULL,
+	CONSTRAINT "Training_form_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Place_list" (
+	"Id" serial NOT NULL,
+	"Place" TEXT NOT NULL,
+	CONSTRAINT "Place_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Program_level_list" (
+	"Id" serial NOT NULL,
+	"Level" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Program_level_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Direction_study_list" (
+	"Id" serial NOT NULL,
+	"Direction" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Direction_study_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Issued_document_list" (
+	"Id" serial NOT NULL,
+	"Document" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Issued_document_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Requirements_listeners_list" (
+	"Id" serial NOT NULL,
+	"Requirements" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Requirements_listeners_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Program_status_list" (
+	"Id" serial NOT NULL,
+	"Status" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Program_status_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+CREATE TABLE public."Listener_status_list" (
+	"Id" serial NOT NULL,
+	"Status" VARCHAR(255) NOT NULL,
+	CONSTRAINT "Listener_status_list_pk" PRIMARY KEY ("Id")
+) WITH (
+  OIDS=FALSE
+);
+
+
+
+ALTER TABLE "Listeners" ADD CONSTRAINT "Listeners_fk0" FOREIGN KEY ("Program_id") REFERENCES "Program_passport"("Id");
+ALTER TABLE "Listeners" ADD CONSTRAINT "Listeners_fk1" FOREIGN KEY ("Listener_status") REFERENCES "Listener_status_list"("Id");
+
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk0" FOREIGN KEY ("Program_level_id") REFERENCES "Program_level_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk1" FOREIGN KEY ("Type_program_id") REFERENCES "Type_program_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk2" FOREIGN KEY ("Direction_study_id") REFERENCES "Direction_study_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk3" FOREIGN KEY ("Training_form_id") REFERENCES "Training_form_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk4" FOREIGN KEY ("Place_id") REFERENCES "Place_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk5" FOREIGN KEY ("Issued_document_id") REFERENCES "Issued_document_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk6" FOREIGN KEY ("Requirements_listeners_id") REFERENCES "Requirements_listeners_list"("Id");
+ALTER TABLE "Program_passport" ADD CONSTRAINT "Program_passport_fk7" FOREIGN KEY ("Program_status") REFERENCES "Program_status_list"("Id");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,76 @@
+#registration {
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: rgba(0, 0, 0, 0.50);
+    overflow: auto;
+    z-index: 101;
+}
+
+#forma {
+    width: 300px;
+    position: fixed;
+    top: 60px;
+    left: calc(50% - 150px);
+    padding: 10px;
+    display: grid;
+    row-gap: 2px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 4px 4px 20px #ccc;
+    z-index: 102;
+    span {
+        font-size: 18px;
+    }
+    #failedAlert{
+        text-align: center;
+        color: red;
+    }
+}
+
+#registration_but {
+    background-color: #21499e;
+    color: white;
+    padding: 10px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+.user-box {
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-bottom: 15px;
+    position: relative;
+    input {
+        width: 100%;
+        font-size: 14px;
+        color: rgb(0, 0, 0);
+        border: none;
+        border-bottom: 1px solid #21499e;
+        outline: none;
+        background: transparent;
+    }
+    label {
+        font-size: 14px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        font-size: 16px;
+        color: rgb(0, 0, 0);
+        pointer-events: none;
+    }
+}
+
+
+
+.fa-xmark{
+    cursor:pointer; 
+    position: absolute; 
+    right: 10px; 
+    top: 10px; 
+    font-size: 25px;
+}

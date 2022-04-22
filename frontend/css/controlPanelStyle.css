@@ -1,0 +1,130 @@
+.wrapper {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  background: none;
+  height: 30px;
+  width: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  border-radius: 5px;
+  margin-left: 60px;
+}
+
+.wrapper .option {
+  background: #0b869d;
+  height: 100%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin: 0 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0 10px;
+  border: 2px solid #2e2e2e;
+  border-bottom: 4px solid #0b869d;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 11px;
+  max-width: 100%;
+}
+
+.wrapper .option .dot {
+  height: 20px;
+  width: 20px;
+  background: #0b869d;
+  border-radius: 50%;
+  position: relative;
+  display: none;
+  margin-right: 5px;
+}
+
+.wrapper .option .dot::before {
+  position: absolute;
+  content: "";
+  top: 4px;
+  left: 4px;
+  width: 12px;
+  height: 12px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transform: scale(1.5);
+          transform: scale(1.5);
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.wrapper .option span {
+  font-size: 20px;
+  color: white;
+}
+
+#control_input:checked ~ #control_label {
+  border-color: #242424;
+  background: white;
+  border-bottom: 4px solid white;
+}
+
+#control_input:checked ~ #control_label .dot {
+  display: block;
+}
+
+#control_input:checked ~ #control_label .dot::before {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#control_input:checked ~ #control_label span {
+  color: #0b869d;
+}
+
+#library_input:checked ~ #library_label {
+  border-color: #242424;
+  background: white;
+  border-bottom: 4px solid white;
+}
+
+#library_input:checked ~ #library_label .dot {
+  display: block;
+}
+
+#library_input:checked ~ #library_label .dot::before {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#library_input:checked ~ #library_label span {
+  color: #0b869d;
+}
+
+hr {
+  margin-top: 0;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+  display: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+/*# sourceMappingURL=controlPanelStyle.css.map */

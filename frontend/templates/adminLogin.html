@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+    {{ template "header" .}}
+    <form method="post", action="/api/loginAdmin">
+        <label>Логин:</label>
+        <input name="login">
+        <label>Пароль:</label>
+        <input name="password" type="password">
+        <button type="submit">Готово</button>
+    </form>
+    <script src="/js/general.js"></script>
+</body>
+</html>

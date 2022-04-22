@@ -1,0 +1,130 @@
+body {
+  padding: 0;
+  margin: 0;
+  padding-top: 100px;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#filters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+}
+
+#filters #table {
+  border-bottom: 3px solid #0b869d;
+  border-top: none;
+  border-end-end-radius: 15px;
+  border-end-start-radius: 15px;
+  padding: 5px;
+  font-size: 14px;
+  -webkit-box-shadow: 4px 4px 12px #c9c9c9;
+          box-shadow: 4px 4px 12px #c9c9c9;
+}
+
+#filters #table > tr {
+  font-weight: bold;
+}
+
+#filters select {
+  width: 100%;
+  margin: 3px;
+}
+
+.Program {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "t_1 t_2 t_3 t_4 t_5 t_6 t_7" "e_1 e_2 e_3 e_4 e_5 e_6 e_7" "but but but but but but but";
+  -ms-grid-columns: 15% 15% 15% 12% 15% 10% 18%;
+      grid-template-columns: 15% 15% 15% 12% 15% 10% 18%;
+  background-color: #64ccdf;
+  padding: 6px;
+  border-radius: 30px;
+  -webkit-box-shadow: 4px 4px 12px #c9c9c9;
+          box-shadow: 4px 4px 12px #c9c9c9;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.Program:hover {
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+.Program .Title {
+  font-size: 14px;
+  text-align: center;
+  font-weight: bolder;
+  margin: 3px;
+  padding: 3px;
+  background-color: #c1e4eb;
+  border-radius: 30px;
+  border-spacing: 10px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.Program .Element {
+  margin: 5px;
+  margin-bottom: 0px;
+  padding: 5px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.buttons_grup {
+  display: table;
+  margin-left: auto;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+.detailed_but {
+  padding: 5px;
+  margin-right: 10px;
+  border: 2px solid black;
+  border-radius: 30px;
+  background: none;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+
+.detailed_but:hover {
+  border: 2px solid black;
+  border-radius: 30px;
+  background: black;
+  color: white;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.subscribe_but {
+  background-color: #21499e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.subscribe_but:hover {
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+/*# sourceMappingURL=homePageStyle.css.map */

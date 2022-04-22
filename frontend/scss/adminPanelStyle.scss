@@ -1,0 +1,357 @@
+.wrapper {
+    grid-area: wrapper;
+    user-select: none;
+    display: inline-flex;
+    background: none;
+    height: 30px;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 5px;
+    margin-left: 60px;
+    .option {
+        background: #0b869d;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        margin: 0 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        padding: 0 10px;
+        border: 2px solid rgb(46, 46, 46);
+        border-bottom: 4px solid #0b869d;
+        transition: all 0.3s ease;
+        font-size: 11px;
+        max-width: 100%;
+        .dot {
+            height: 20px;
+            width: 20px;
+            background: #0b869d;
+            border-radius: 50%;
+            position: relative;
+            display: none;
+            margin-right: 5px;
+        }
+        .dot::before {
+            position: absolute;
+            content: "";
+            top: 4px;
+            left: 4px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0;
+            transform: scale(1.5);
+            transition: all 0.3s ease;
+        }
+        span {
+            font-size: 20px;
+            color: white;
+        }
+    }
+}
+
+#controlView_input:checked, #programView_input:checked, #libraryView_input:checked {
+    & + label {
+        border-color: #242424;
+        background: white;
+        border-bottom: 4px solid white;
+        .dot {
+            display: block;
+        }
+        .dot::before {
+            opacity: 1;
+            transform: scale(1);
+        }
+        span {
+            color: #0b869d;
+        }
+    }
+}
+
+
+hr {
+    margin-top: 0;
+}
+
+#controlPanelView{
+    display: grid;
+    grid-template-columns: 30% 70%;
+    grid-template-areas:    "search opportunities "
+                            "lists opportunities "  
+                            "addProgramButton opportunities "
+                            ". opportunities "; 
+    #interactionProgramList{
+        display: flex;
+        #switchProgramListsButton{
+            vertical-align: middle;
+            text-align: center;
+            width: 60px;
+            border: 2px solid #0b869d;
+            border-bottom: none;
+            background-color: #0b869d;
+            color: white;
+            padding: 7px;
+        }
+        & > input[type="search"]{
+            width: auto;
+            margin: 4px;
+        }
+    }
+    #lists{
+        grid-area: lists;
+        #activePrograms{
+            padding: 4px;
+            background-color: #e4e4e4;
+            min-width: 150px;
+            height: 550px;
+            overflow-y: scroll;
+            border: 2px solid #0b869d;
+            label{
+                cursor: pointer;
+            }
+        }
+        #applications{
+            padding: 4px;
+            background-color: #e4e4e4;
+            min-width: 150px;
+            height: 550px;
+            overflow-y: scroll;
+            border: 2px solid #0b869d;
+            label{
+                cursor: pointer;
+            }
+        }
+    }
+    #opportunities{
+        grid-area: opportunities;
+        #listenerList{
+            margin: 8px;
+            #ListenerInformationTable{
+                display: table;
+                width: 100%;
+                border-collapse: collapse;
+                border: 4px solid white;
+                border-radius: 30px;
+                td {
+                    text-align: left;
+                    padding: 3px 5px;
+                    font-size: 12px;
+                    vertical-align: top;
+                    border-left: 1px solid rgba(0, 0, 0, 0.20);
+                }
+                tr{
+                    height: 30px;
+                    td:first-child {
+                        padding: 0px;
+                    }
+                }
+                tr:nth-child(odd) {
+                    background: rgba(0, 0, 0, 0.1);
+                }
+                tr:first-child {
+                    font-size: 14px;
+                    font-weight: bold;
+
+                    background: rgba(0, 48, 240, 0.3);
+                    border: 1px solid rgba(0, 0, 0, 0.2);
+                }
+            }
+        }
+    }
+    
+    #passport {
+        cursor: pointer;
+        grid-area: c;
+        overflow: auto;
+        border-radius: 10px;
+        background-color: rgba(0, 0, 0, 0.10);
+        padding: 20px;
+        width: 90%;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        box-shadow: 4px 4px 12px rgb(201, 201, 201);
+        #table {
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            border: 4px solid white;
+            border-radius: 30px;
+            td {
+                text-align: left;
+                padding: 10px 15px;
+                font-size: 14px;
+                vertical-align: top;
+                border-left: 3px solid rgba(0, 0, 0, 0.20);
+            }
+            tr{
+                select{
+                    width: 90%;
+                }
+            }
+            tr:nth-child(odd) {
+                background: white;
+            }
+            tr:first-child td:first-child {
+                border-top-left-radius: 10px;
+            }
+        
+            tr:first-child td:last-child {
+                border-top-right-radius: 10px;
+            }
+        
+            tr:last-child td:first-child {
+                border-bottom-left-radius: 10px;
+            }
+            tr:last-child td:last-child {
+                border-bottom-right-radius: 10px;
+            }
+        }
+    }
+    #addProgramButton{
+        grid-area: addProgramButton ;
+        height: 25px;
+    }
+}
+
+#archiveView{
+    #allProgramsList{
+        display: grid;
+        grid-template-columns: 20% 20%;
+        grid-column-gap: 3px;
+        grid-row-gap: 3px;
+    }
+}
+
+.programCard{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: calc(100% - 52px) 30px 22px;
+    grid-template-areas: "| | i";
+    overflow: auto;
+    margin-top: 3px;
+    padding: 4px;
+    padding-right: 8px;
+    background-color: #0b869d;
+    color: white;
+    &:hover{
+        background-color: #1b9db4;
+        transition: 0.2s;
+    }
+
+    .listenerCount{
+        margin-top: 2px;
+        margin-left: auto; 
+        margin-right: 5px;
+    }
+}
+
+.listener{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: calc(100% - 18px) 18px;
+    grid-template-areas: "| i";
+    margin-bottom: 4px;
+    padding: 4px;
+    background-color: white;
+    border: 2px solid #0b869d;
+    padding: 5px;
+    & > label {
+        cursor: pointer;
+    }
+    &:hover{
+        border: 2px solid #64ccdf;
+        transition: 0.1s
+    }
+}
+
+.listenerSelect {
+    background-color: #64ccdf;
+    border: 2px solid #64ccdf;
+    margin-bottom: 0px;
+}
+
+.selectedProgram{
+    background-color: #b30000;
+    &:hover{
+        background-color: #c63434;
+        transition: 0.2s;
+    }
+}
+
+.leaved{
+    color: #959595;
+}
+#statusMenu{
+    display:grid; 
+    position: fixed;
+    background-color: #ededed;
+    border: 2px solid #698b91;
+    padding: 5px;
+    position: fixed;
+    & input{
+        margin: 2px;
+    }
+}
+
+.listenerInformation{
+    border: 3px solid #64ccdf;
+    padding: 5px;
+    margin-bottom: 3px;
+    background-color: #f8f8f8;
+    display: grid;
+    grid-template-columns: 20px auto;
+}
+
+#backWall{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.60);
+    overflow:hidden;
+    #editListener {
+        width: 300px;
+        position: fixed;
+        top: 40%;
+        left: calc(50% - 150px);
+        padding: 10px;
+        display: grid;
+        row-gap: 5px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 4px 4px 20px #ccc;
+        i{
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+}
+
+
+.programStatus{
+    border-radius: 100%;
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+}
+
+.statusOpen{
+    background-color: #0b869d;
+}
+.statusActive{
+    background-color: rgb(0, 255, 0);
+}
+.statusClose{
+    background-color: red;
+}
+.statusFinished{
+    background-color: yellow;
+}
