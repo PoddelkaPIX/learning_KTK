@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"learning/backend/db"
 	"learning/backend/utils"
 	"net/http"
@@ -71,7 +70,7 @@ func queryPrograms() []Program {
 	if len(program_list) == 0{
 		program_list = append(program_list, program)
 	}
-	fmt.Println(program_list)
+
 	if (program_list[0] == Program{}){
 		return nil
 	}else{
@@ -208,7 +207,7 @@ func queryLoginAdmin(c *gin.Context) {
 		return
 	}
 
-	c.SetCookie("AdAuS", password, 3600*1000, "/", c.Request.URL.Hostname(), false, false)
+	c.SetCookie("AdAuS", password, 3600*99999, "/", c.Request.URL.Hostname(), false, false)
 	c.Redirect(http.StatusFound, "/")
 }
 
@@ -330,8 +329,6 @@ func queryEditProgram(c *gin.Context){
 	program.Requirement_id = i.Requirement
 	program.Status_id = "2"
 	program.Plan = i.Plan
-
-	fmt.Println(program)
 
 	_, err := db.Link.Exec(`update "Program_passport" 
 							set 
@@ -457,7 +454,6 @@ func queryAddListener(c *gin.Context) {
 		return
 	}
 
-	fmt.Println(i)
 	program_id_int, _ := strconv.ParseInt(i.Program_id, 10, 64)
 	registration_date := time.Now().String()[:10]
 
@@ -602,7 +598,6 @@ func queryAddProgram(program Program) {
 	issued_document, _ := strconv.Atoi(program.Issued_document_id)
 	requirement, _ := strconv.Atoi(program.Requirement_id)
 
-	fmt.Println(program.Plan)
 	_, e := db.Link.Exec(`INSERT INTO "Program_passport" 
 					("Type_id", 
 					"Title", 
@@ -705,7 +700,6 @@ func createExcelListersList(c *gin.Context){
 
 
 func excel(c *gin.Context){ // POST
-	fmt.Println("ffffffff")
 	f , err:= excelize.OpenFile("text.xlsx")
 	if err != nil{
 		utils.Logger.Println(err)
@@ -721,4 +715,9 @@ func excel(c *gin.Context){ // POST
 	_ = f.Write(c.Writer)
 	os.Remove("text.xlsx")
 	c.JSON(200, nil)
+}
+
+func queryLogoutAdmin(c *gin.Context){
+	c.Redirect(http.StatusFound, "/")
+	c.SetCookie("AdAuS", "", -1, "/", c.Request.URL.Hostname(), false, false)
 }

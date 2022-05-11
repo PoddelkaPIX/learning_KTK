@@ -31,6 +31,7 @@ func StartRouter(conf settings.SettingServer) {
 	router.POST("/api/AddListener", queryAddListener)
 	router.POST("/api/addProgram", addProgram)
 	router.POST("/api/loginAdmin", queryLoginAdmin)
+	router.POST("/api/logoutAdmin", queryLogoutAdmin)
 	router.POST("/api/checkAdmin", checkAdmin)
 	router.POST("/api/upload", upload)
 
