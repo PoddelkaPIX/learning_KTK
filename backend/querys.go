@@ -71,7 +71,12 @@ func queryPrograms() []Program {
 	if len(program_list) == 0{
 		program_list = append(program_list, program)
 	}
-	return program_list
+	fmt.Println(program_list)
+	if (program_list[0] == Program{}){
+		return nil
+	}else{
+		return program_list
+	}
 }
 
 func queryProgram(id string) Program {
@@ -157,6 +162,7 @@ func queryListeners() []Listener {
 	if len(listenersList) == 0{
 		listenersList = append(listenersList, Lis)
 	}
+	
 	return listenersList
 }
 

@@ -5,8 +5,6 @@ import (
 	"learning/backend/settings"
 )
 
-// it-ktkLearning45
-
 func main() {
 	cfg := settings.Load("../settings.cfg")
 	db.Connect(*cfg)

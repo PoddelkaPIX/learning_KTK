@@ -2,10 +2,10 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 14.1
--- Dumped by pg_dump version 14.1
+-- Dumped from database version 14.2 (Ubuntu 14.2-1.pgdg22.04+1+b1)
+-- Dumped by pg_dump version 14.2 (Ubuntu 14.2-1.pgdg22.04+1+b1)
 
--- Started on 2022-04-24 14:01:31
+-- Started on 2022-05-11 16:48:17 +05
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -23,7 +23,7 @@ SET default_tablespace = '';
 SET default_table_access_method = heap;
 
 --
--- TOC entry 232 (class 1259 OID 17735)
+-- TOC entry 209 (class 1259 OID 16385)
 -- Name: Admin; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -37,7 +37,7 @@ CREATE TABLE public."Admin" (
 ALTER TABLE public."Admin" OWNER TO postgres;
 
 --
--- TOC entry 231 (class 1259 OID 17734)
+-- TOC entry 210 (class 1259 OID 16390)
 -- Name: Admin_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -53,8 +53,8 @@ CREATE SEQUENCE public."Admin_Id_seq"
 ALTER TABLE public."Admin_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3444 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3489 (class 0 OID 0)
+-- Dependencies: 210
 -- Name: Admin_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -62,7 +62,7 @@ ALTER SEQUENCE public."Admin_Id_seq" OWNED BY public."Admin"."Id";
 
 
 --
--- TOC entry 222 (class 1259 OID 17649)
+-- TOC entry 211 (class 1259 OID 16391)
 -- Name: Direction_study_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -75,7 +75,7 @@ CREATE TABLE public."Direction_study_list" (
 ALTER TABLE public."Direction_study_list" OWNER TO postgres;
 
 --
--- TOC entry 221 (class 1259 OID 17648)
+-- TOC entry 212 (class 1259 OID 16394)
 -- Name: Direction_study_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -91,8 +91,8 @@ CREATE SEQUENCE public."Direction_study_list_Id_seq"
 ALTER TABLE public."Direction_study_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3445 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 3490 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: Direction_study_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -100,7 +100,7 @@ ALTER SEQUENCE public."Direction_study_list_Id_seq" OWNED BY public."Direction_s
 
 
 --
--- TOC entry 220 (class 1259 OID 17642)
+-- TOC entry 213 (class 1259 OID 16395)
 -- Name: Program_level_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -113,7 +113,7 @@ CREATE TABLE public."Program_level_list" (
 ALTER TABLE public."Program_level_list" OWNER TO postgres;
 
 --
--- TOC entry 219 (class 1259 OID 17641)
+-- TOC entry 214 (class 1259 OID 16398)
 -- Name: Program_level_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -129,8 +129,8 @@ CREATE SEQUENCE public."Program_level_list_Id_seq"
 ALTER TABLE public."Program_level_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3446 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 3491 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: Program_level_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -138,7 +138,7 @@ ALTER SEQUENCE public."Program_level_list_Id_seq" OWNED BY public."Program_level
 
 
 --
--- TOC entry 233 (class 1259 OID 17748)
+-- TOC entry 215 (class 1259 OID 16399)
 -- Name: Education_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -151,7 +151,7 @@ CREATE TABLE public."Education_list" (
 ALTER TABLE public."Education_list" OWNER TO postgres;
 
 --
--- TOC entry 224 (class 1259 OID 17656)
+-- TOC entry 216 (class 1259 OID 16405)
 -- Name: Issued_document_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -164,7 +164,7 @@ CREATE TABLE public."Issued_document_list" (
 ALTER TABLE public."Issued_document_list" OWNER TO postgres;
 
 --
--- TOC entry 223 (class 1259 OID 17655)
+-- TOC entry 217 (class 1259 OID 16408)
 -- Name: Issued_document_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -180,8 +180,8 @@ CREATE SEQUENCE public."Issued_document_list_Id_seq"
 ALTER TABLE public."Issued_document_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3447 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 3492 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: Issued_document_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -189,7 +189,7 @@ ALTER SEQUENCE public."Issued_document_list_Id_seq" OWNED BY public."Issued_docu
 
 
 --
--- TOC entry 210 (class 1259 OID 17588)
+-- TOC entry 218 (class 1259 OID 16409)
 -- Name: Listener; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -212,7 +212,7 @@ CREATE TABLE public."Listener" (
 ALTER TABLE public."Listener" OWNER TO postgres;
 
 --
--- TOC entry 230 (class 1259 OID 17677)
+-- TOC entry 219 (class 1259 OID 16414)
 -- Name: Listener_status_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -225,7 +225,7 @@ CREATE TABLE public."Listener_status_list" (
 ALTER TABLE public."Listener_status_list" OWNER TO postgres;
 
 --
--- TOC entry 229 (class 1259 OID 17676)
+-- TOC entry 220 (class 1259 OID 16417)
 -- Name: Listener_status_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -241,8 +241,8 @@ CREATE SEQUENCE public."Listener_status_list_Id_seq"
 ALTER TABLE public."Listener_status_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3448 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 3493 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: Listener_status_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -250,7 +250,7 @@ ALTER SEQUENCE public."Listener_status_list_Id_seq" OWNED BY public."Listener_st
 
 
 --
--- TOC entry 209 (class 1259 OID 17587)
+-- TOC entry 221 (class 1259 OID 16418)
 -- Name: Listeners_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -266,8 +266,8 @@ CREATE SEQUENCE public."Listeners_Id_seq"
 ALTER TABLE public."Listeners_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3449 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 3494 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: Listeners_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -275,7 +275,7 @@ ALTER SEQUENCE public."Listeners_Id_seq" OWNED BY public."Listener"."Id";
 
 
 --
--- TOC entry 218 (class 1259 OID 17633)
+-- TOC entry 222 (class 1259 OID 16419)
 -- Name: Place_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -288,7 +288,7 @@ CREATE TABLE public."Place_list" (
 ALTER TABLE public."Place_list" OWNER TO postgres;
 
 --
--- TOC entry 217 (class 1259 OID 17632)
+-- TOC entry 223 (class 1259 OID 16424)
 -- Name: Place_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -304,8 +304,8 @@ CREATE SEQUENCE public."Place_list_Id_seq"
 ALTER TABLE public."Place_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3450 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 3495 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: Place_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -313,7 +313,7 @@ ALTER SEQUENCE public."Place_list_Id_seq" OWNED BY public."Place_list"."Id";
 
 
 --
--- TOC entry 212 (class 1259 OID 17597)
+-- TOC entry 224 (class 1259 OID 16425)
 -- Name: Program_passport; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -333,14 +333,15 @@ CREATE TABLE public."Program_passport" (
     "Time_period" character varying(255) DEFAULT ''::character varying,
     "Issued_document_id" integer NOT NULL,
     "Requirement_id" integer NOT NULL,
-    "Status_id" integer NOT NULL
+    "Status_id" integer NOT NULL,
+    "Plan" character varying
 );
 
 
 ALTER TABLE public."Program_passport" OWNER TO postgres;
 
 --
--- TOC entry 211 (class 1259 OID 17596)
+-- TOC entry 225 (class 1259 OID 16432)
 -- Name: Program_passport_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -356,8 +357,8 @@ CREATE SEQUENCE public."Program_passport_Id_seq"
 ALTER TABLE public."Program_passport_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3451 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3496 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: Program_passport_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -365,7 +366,7 @@ ALTER SEQUENCE public."Program_passport_Id_seq" OWNED BY public."Program_passpor
 
 
 --
--- TOC entry 228 (class 1259 OID 17670)
+-- TOC entry 226 (class 1259 OID 16433)
 -- Name: Program_status_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -378,7 +379,7 @@ CREATE TABLE public."Program_status_list" (
 ALTER TABLE public."Program_status_list" OWNER TO postgres;
 
 --
--- TOC entry 227 (class 1259 OID 17669)
+-- TOC entry 227 (class 1259 OID 16436)
 -- Name: Program_status_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -394,7 +395,7 @@ CREATE SEQUENCE public."Program_status_list_Id_seq"
 ALTER TABLE public."Program_status_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3452 (class 0 OID 0)
+-- TOC entry 3497 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: Program_status_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
@@ -403,7 +404,7 @@ ALTER SEQUENCE public."Program_status_list_Id_seq" OWNED BY public."Program_stat
 
 
 --
--- TOC entry 226 (class 1259 OID 17663)
+-- TOC entry 228 (class 1259 OID 16437)
 -- Name: Requirements_listeners_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -417,7 +418,7 @@ CREATE TABLE public."Requirements_listeners_list" (
 ALTER TABLE public."Requirements_listeners_list" OWNER TO postgres;
 
 --
--- TOC entry 225 (class 1259 OID 17662)
+-- TOC entry 229 (class 1259 OID 16443)
 -- Name: Requirements_listeners_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -433,8 +434,8 @@ CREATE SEQUENCE public."Requirements_listeners_list_Id_seq"
 ALTER TABLE public."Requirements_listeners_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3453 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 3498 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: Requirements_listeners_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -442,7 +443,7 @@ ALTER SEQUENCE public."Requirements_listeners_list_Id_seq" OWNED BY public."Requ
 
 
 --
--- TOC entry 216 (class 1259 OID 17624)
+-- TOC entry 230 (class 1259 OID 16444)
 -- Name: Training_form_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -456,7 +457,7 @@ CREATE TABLE public."Training_form_list" (
 ALTER TABLE public."Training_form_list" OWNER TO postgres;
 
 --
--- TOC entry 215 (class 1259 OID 17623)
+-- TOC entry 231 (class 1259 OID 16450)
 -- Name: Training_form_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -472,8 +473,8 @@ CREATE SEQUENCE public."Training_form_list_Id_seq"
 ALTER TABLE public."Training_form_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3454 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 3499 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: Training_form_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -481,7 +482,7 @@ ALTER SEQUENCE public."Training_form_list_Id_seq" OWNED BY public."Training_form
 
 
 --
--- TOC entry 214 (class 1259 OID 17615)
+-- TOC entry 232 (class 1259 OID 16451)
 -- Name: Type_program_list; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -494,7 +495,7 @@ CREATE TABLE public."Type_program_list" (
 ALTER TABLE public."Type_program_list" OWNER TO postgres;
 
 --
--- TOC entry 213 (class 1259 OID 17614)
+-- TOC entry 233 (class 1259 OID 16456)
 -- Name: Type_program_list_Id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -510,8 +511,8 @@ CREATE SEQUENCE public."Type_program_list_Id_seq"
 ALTER TABLE public."Type_program_list_Id_seq" OWNER TO postgres;
 
 --
--- TOC entry 3455 (class 0 OID 0)
--- Dependencies: 213
+-- TOC entry 3500 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: Type_program_list_Id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
 --
 
@@ -519,7 +520,7 @@ ALTER SEQUENCE public."Type_program_list_Id_seq" OWNED BY public."Type_program_l
 
 
 --
--- TOC entry 3238 (class 2604 OID 17738)
+-- TOC entry 3268 (class 2604 OID 16457)
 -- Name: Admin Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -527,7 +528,7 @@ ALTER TABLE ONLY public."Admin" ALTER COLUMN "Id" SET DEFAULT nextval('public."A
 
 
 --
--- TOC entry 3232 (class 2604 OID 17652)
+-- TOC entry 3269 (class 2604 OID 16458)
 -- Name: Direction_study_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -535,7 +536,7 @@ ALTER TABLE ONLY public."Direction_study_list" ALTER COLUMN "Id" SET DEFAULT nex
 
 
 --
--- TOC entry 3233 (class 2604 OID 17659)
+-- TOC entry 3272 (class 2604 OID 16459)
 -- Name: Issued_document_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -543,7 +544,7 @@ ALTER TABLE ONLY public."Issued_document_list" ALTER COLUMN "Id" SET DEFAULT nex
 
 
 --
--- TOC entry 3223 (class 2604 OID 17591)
+-- TOC entry 3273 (class 2604 OID 16460)
 -- Name: Listener Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -551,7 +552,7 @@ ALTER TABLE ONLY public."Listener" ALTER COLUMN "Id" SET DEFAULT nextval('public
 
 
 --
--- TOC entry 3237 (class 2604 OID 17680)
+-- TOC entry 3274 (class 2604 OID 16461)
 -- Name: Listener_status_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -559,7 +560,7 @@ ALTER TABLE ONLY public."Listener_status_list" ALTER COLUMN "Id" SET DEFAULT nex
 
 
 --
--- TOC entry 3230 (class 2604 OID 17636)
+-- TOC entry 3275 (class 2604 OID 16462)
 -- Name: Place_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -567,7 +568,7 @@ ALTER TABLE ONLY public."Place_list" ALTER COLUMN "Id" SET DEFAULT nextval('publ
 
 
 --
--- TOC entry 3231 (class 2604 OID 17645)
+-- TOC entry 3270 (class 2604 OID 16463)
 -- Name: Program_level_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -575,7 +576,7 @@ ALTER TABLE ONLY public."Program_level_list" ALTER COLUMN "Id" SET DEFAULT nextv
 
 
 --
--- TOC entry 3224 (class 2604 OID 17600)
+-- TOC entry 3278 (class 2604 OID 16464)
 -- Name: Program_passport Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -583,7 +584,7 @@ ALTER TABLE ONLY public."Program_passport" ALTER COLUMN "Id" SET DEFAULT nextval
 
 
 --
--- TOC entry 3236 (class 2604 OID 17673)
+-- TOC entry 3279 (class 2604 OID 16465)
 -- Name: Program_status_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -591,7 +592,7 @@ ALTER TABLE ONLY public."Program_status_list" ALTER COLUMN "Id" SET DEFAULT next
 
 
 --
--- TOC entry 3234 (class 2604 OID 17666)
+-- TOC entry 3281 (class 2604 OID 16466)
 -- Name: Requirements_listeners_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -599,7 +600,7 @@ ALTER TABLE ONLY public."Requirements_listeners_list" ALTER COLUMN "Id" SET DEFA
 
 
 --
--- TOC entry 3228 (class 2604 OID 17627)
+-- TOC entry 3283 (class 2604 OID 16467)
 -- Name: Training_form_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -607,7 +608,7 @@ ALTER TABLE ONLY public."Training_form_list" ALTER COLUMN "Id" SET DEFAULT nextv
 
 
 --
--- TOC entry 3227 (class 2604 OID 17618)
+-- TOC entry 3284 (class 2604 OID 16468)
 -- Name: Type_program_list Id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -615,8 +616,8 @@ ALTER TABLE ONLY public."Type_program_list" ALTER COLUMN "Id" SET DEFAULT nextva
 
 
 --
--- TOC entry 3437 (class 0 OID 17735)
--- Dependencies: 232
+-- TOC entry 3459 (class 0 OID 16385)
+-- Dependencies: 209
 -- Data for Name: Admin; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -624,8 +625,8 @@ INSERT INTO public."Admin" ("Id", "Login", "Password") VALUES (1, 'Admin', '621a
 
 
 --
--- TOC entry 3427 (class 0 OID 17649)
--- Dependencies: 222
+-- TOC entry 3461 (class 0 OID 16391)
+-- Dependencies: 211
 -- Data for Name: Direction_study_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -642,8 +643,8 @@ INSERT INTO public."Direction_study_list" ("Id", "Direction") VALUES (10, 'Се�
 
 
 --
--- TOC entry 3438 (class 0 OID 17748)
--- Dependencies: 233
+-- TOC entry 3465 (class 0 OID 16399)
+-- Dependencies: 215
 -- Data for Name: Education_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -654,8 +655,8 @@ INSERT INTO public."Education_list" ("Id", "Education") VALUES (8, 'Высшее
 
 
 --
--- TOC entry 3429 (class 0 OID 17656)
--- Dependencies: 224
+-- TOC entry 3466 (class 0 OID 16405)
+-- Dependencies: 216
 -- Data for Name: Issued_document_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -663,40 +664,22 @@ INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (1, 'Сви�
 INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (2, 'Свидетельство о профессии водителя');
 INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (3, 'Свидетельство о прохождении обучения на право управления самоходными машинами');
 INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (4, 'Диплом о профессиональной переподготовке с присвоением новой квалификации');
+INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (5, 'Удостоверение о повышении квалификации
+');
+INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (6, 'Диплом о профессиональной переподготовке');
 
 
 --
--- TOC entry 3415 (class 0 OID 17588)
--- Dependencies: 210
+-- TOC entry 3468 (class 0 OID 16409)
+-- Dependencies: 218
 -- Data for Name: Listener; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (32, 'Сеногноев', 'Артём', 'Владимирович', '4263348o545', 'Среднее профессиональное образование', 6, 'sgjajkagkjk@mail.ru', '2022-03-29 19:43:33', '2022-03-24', 1, '2345732');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (65, 'Бородин', 'Максим', 'Потапов', '+78909353636', 'Основное общее образование', 22, 'potap@mail.ru', '2022-04-21 10:04:18', '2018-01-09', 2, '98779897896');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (40, 'Кириешко', 'Иван', 'Андреевич', '89094636363', 'Среднее профессиональное образование', 19, 'kirieshka@gmail.com', '2022-04-12 17:55:40', '2009-06-17', 2, '45463272');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (66, 'Патютько', 'Наталья', 'Сергеевна', '88890990562', 'Высшее образование', 22, 'paputco@mail.ru', '2022-04-21 10:04:52', '2022-04-01', 2, '25734883246');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (38, 'Бородин', 'Максим', 'Потапов', '8909353636', 'Среднее общее образование', 10, 'potap@mail.ru', '2022-04-12 15:30:59', '1999-06-23', 1, '747364327');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (22, 'Молочков', 'Никита', 'Сергеевич', '8909433626', 'Среднее профессиональное образование', 3, 'вымяавп2,madfsf@.ru', '2022-03-25 11:28:55', '2003-01-06', 2, '21446538437');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (23, 'Попков', 'Дмитрий', 'Романович', '89092345625', 'Начальное общее образование', 3, 'aqwertt@mail.ru', '2021-03-25 10:28:55', '2001-01-06', 2, '236436843');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (27, 'Мухаметов', 'Станислав', 'Олегович', '8909314151', 'Высшее образование', 5, 'papapapap@gmail.com', '2022-03-25 15:15:27', '2001-02-13', 2, '976543224363');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (36, 'Казёлов', 'Артём', 'Васильевич', '89094633264', 'Высшее образование', 7, 'sssssssssss@mail.ru', '2022-04-09 18:00:53', '2002-05-17', 2, '6486542513');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (37, 'Васильев', 'Василий', 'Васильевич', '8909346543', 'Среднее общее образование', 7, 'vasiliev@mail.ru', '2022-04-09 20:54:26', '2012-07-11', 2, '84326783');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (24, 'Грязнов', 'Станислав', 'Олегович', '8908313451', 'Высшее образование', 5, 'ffffpap@gmail.com', '2022-03-25 15:15:27', '2001-02-13', 2, '976543224363');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (35, 'Дементьев', 'Владислав', 'Станиславович', '890924256266', 'Среднее профессиональное образование', 7, 'dementiev@gmail.com', '2022-04-05 10:16:46', '2001-06-21', 2, '56715195635');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (34, 'Москаленко', 'Максим', 'Матвеевич', '+73924249596', 'Среднее профессиональное образование', 7, 'pix333364@mail.ru', '2022-04-02 14:25:59', '2005-07-14', 2, '25734883246');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (42, 'Папук', 'Глеб', 'Потапов', '8909235251168', 'Основное общее образование', 21, 'popuc@email.ru', '2022-04-16 20:12:53', '2022-04-14', 2, '5674532');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (25, 'Сёмкин', 'Станислав', 'Олегович', '8909144156', 'Высшее образование', 5, 'baagaggapap@gmail.com', '2022-03-25 15:15:27', '2001-02-13', 2, '976543224363');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (39, 'Деревянко', 'Андрей', 'Сергеевич', '+79923850591', 'Основное общее образование', 8, 'sgdgsfaa@list.ru', '2022-04-12 16:53:09', '1997-07-16', 3, '6837422346');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (41, 'Патютько', 'Наталья', 'Сергеевна', '8890990562', 'Высшее образование', 33, 'paputco@mail.ru', '2022-04-16 19:48:09', '1997-02-05', 3, '54673422');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (64, 'Лукошенко', 'Максим', 'Викторович', '+78909353636', 'Среднее общее образование', 21, 'luk@mail.ru', '2022-04-20 11:55:26', '2007-02-08', 2, '25734883246');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (63, 'Бородин', 'Максим', 'Потапов', '+78909353636', 'Основное общее образование', 21, 'potap@mail.ru', '2022-04-20 10:28:13', '2022-02-01', 2, '56715195635');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (67, 'Лапух', 'Петя', 'Иванов', '+78909353636', 'Среднее общее образование', 24, 'LAPUH@email.ru', '2022-04-21 10:06:12', '2022-04-08', 3, '56715195635');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (26, 'Власов', 'Кирилл', 'Олегович', '8990574345', 'Среднее общее образование', 3, 'sdfhsgdsfg@gmail.com', '2022-03-25 15:15:27', '2001-02-02', 2, '976543224363');
 
 
 --
--- TOC entry 3435 (class 0 OID 17677)
--- Dependencies: 230
+-- TOC entry 3469 (class 0 OID 16414)
+-- Dependencies: 219
 -- Data for Name: Listener_status_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -704,12 +687,12 @@ INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (1, 'Waiting')
 INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (2, 'Learning');
 INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (3, 'Learned');
 INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (4, 'Leaved');
-INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (5, 'interrupted');
+INSERT INTO public."Listener_status_list" ("Id", "Status") VALUES (5, 'Interrupted');
 
 
 --
--- TOC entry 3423 (class 0 OID 17633)
--- Dependencies: 218
+-- TOC entry 3472 (class 0 OID 16419)
+-- Dependencies: 222
 -- Data for Name: Place_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -721,8 +704,8 @@ INSERT INTO public."Place_list" ("Id", "Place") VALUES (5, 'Курганская
 
 
 --
--- TOC entry 3425 (class 0 OID 17642)
--- Dependencies: 220
+-- TOC entry 3463 (class 0 OID 16395)
+-- Dependencies: 213
 -- Data for Name: Program_level_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -731,33 +714,16 @@ INSERT INTO public."Program_level_list" ("Id", "Level") VALUES (2, 'Дополн
 
 
 --
--- TOC entry 3417 (class 0 OID 17597)
--- Dependencies: 212
+-- TOC entry 3474 (class 0 OID 16425)
+-- Dependencies: 224
 -- Data for Name: Program_passport; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (33, 'Секретарь-машинистка', 1, 1, 2, 2, '288 часов', '2 месяца', '10000 руб.', 2, '5 человек', '2022-04-20', '', 1, 13, 3);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (37, 'Диспетчер автомобильного и городского наземного электрического транспорта', 2, 2, 5, 2, '256 часов', '2 месяца', '13000 руб.', 3, '5 человек', 'По мере набора группы', '', 4, 19, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (21, 'Диспетчер автомобильного и городского наземного электрического транспорта', 2, 2, 5, 2, '256 часов', '2 месяца', '13000 руб.', 3, '5 человек', '2022-04-20', '', 4, 19, 1);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (38, 'Портной', 1, 1, 1, 1, '432 часа', '3 месяца', '15000 руб.', 1, '5 человек', 'По мере набора группы', '', 1, 13, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (24, 'Портной', 1, 1, 1, 1, '432 часа', '3 месяца', '15000 руб.', 1, '5 человек', '2022-04-21', '2022-04-21', 1, 13, 3);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (3, 'Закройщик', 1, 1, 1, 1, '432 часа ', '3 месяца', '16200 руб', 1, '5 человек', '2022-04-14', '', 1, 13, 1);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (39, 'aaaaaaa', 1, 1, 6, 1, 'укпур', 'упуп', '88888', 1, '12', '', '2022-04-21', 1, 14, 4);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (40, 'Закройщик', 1, 1, 1, 1, '432 часа ', '3 месяца', '16200 руб', 1, '5 человек', 'По мере набора группы', '', 1, 13, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (22, 'Закройщик', 1, 1, 1, 1, '432 часа ', '3 месяца', '16200 руб', 1, '5 человек', '2022-04-21', '', 1, 13, 1);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (5, 'Тракторист', 1, 1, 2, 1, '206 часов', '2 месяца', '300 руб', 2, '2 человека', '2022-04-14', '', 2, 13, 1);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (7, 'Портной', 1, 1, 1, 1, '432 часа', '3 месяца', '15000 руб.', 1, '5 человек', '2022-04-14', '', 1, 13, 1);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (23, 'Тракторист', 1, 1, 2, 1, '206 часов', '2 месяца', '300 руб', 2, '2 человека', 'По мере набора группы', '', 2, 13, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (32, 'Швея', 1, 1, 1, 1, '160 часов', '1 месяц', '6000 руб.', 1, '8 человек', '', '', 1, 13, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (34, 'Специалист по маникюру', 1, 1, 1, 1, '144 часа', '1 месяц', '6500 руб.', 1, '7 человек', '', '', 1, 11, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (35, 'Специалист по педикюру', 1, 1, 1, 1, '144 часа', '1 месяц', '6500 руб.', 1, '7 человек', '', '', 1, 11, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (36, 'Секретарь-машинистка', 1, 1, 2, 2, '288 часов', '2 месяца', '10000 руб.', 2, '5 человек', '', '', 1, 13, 2);
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id") VALUES (8, 'Диспетчер автомобильного и городского наземного электрического транспорта', 2, 2, 5, 2, '256 часов', '2 месяца', '13000 руб.', 3, '5 человек', '2022-04-14', '2022-04-20', 4, 19, 3);
 
 
 --
--- TOC entry 3433 (class 0 OID 17670)
--- Dependencies: 228
+-- TOC entry 3476 (class 0 OID 16433)
+-- Dependencies: 226
 -- Data for Name: Program_status_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -768,8 +734,8 @@ INSERT INTO public."Program_status_list" ("Id", "Status") VALUES (2, 'Open');
 
 
 --
--- TOC entry 3431 (class 0 OID 17663)
--- Dependencies: 226
+-- TOC entry 3478 (class 0 OID 16437)
+-- Dependencies: 228
 -- Data for Name: Requirements_listeners_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -781,12 +747,12 @@ INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reductio
 INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reduction") VALUES (16, 'Целевая аудитория курса – лица от 17 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста - машиниста (тракториста) выдается после сдачи в государственной инспекции гостехнадзора экзаменов на право управления самоходными машинами', 'от 17 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста - машиниста (тракториста)');
 INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reduction") VALUES (17, 'Целевая аудитория курса – лица от 18 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста - машиниста (тракториста) выдается после сдачи в государственной инспекции гостехнадзора экзаменов на право управления самоходными машинами', 'от 18 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста - машиниста (тракториста)');
 INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reduction") VALUES (18, 'Целевая аудитория курса – лица от 16 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста  - машиниста (тракториста) выдается после сдачи в государственной инспекции гостехнадзора экзаменов на право управления самоходными машинами', 'от 16 лет и старше, без предъявления требований к уровню образования. Удостоверение тракториста - машиниста (тракториста)');
-INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reduction") VALUES (19, 'Целевая аудитория курса – лица, имеющие среднее профессиональное и (или) высшее образование; лица, получающие среднее профессиональное и (или) высшее образование', '');
+INSERT INTO public."Requirements_listeners_list" ("Id", "Requirement", "Reduction") VALUES (19, 'Целевая аудитория курса – лица, имеющие среднее профессиональное и (или) высшее образование; лица, получающие среднее профессиональное и (или) высшее образование', 'Целевая аудитория курса – лица, имеющие среднее профессиональное и (или) высшее образование; лица, получающие среднее профессиональное и (или) высшее образование');
 
 
 --
--- TOC entry 3421 (class 0 OID 17624)
--- Dependencies: 216
+-- TOC entry 3480 (class 0 OID 16444)
+-- Dependencies: 230
 -- Data for Name: Training_form_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -795,8 +761,8 @@ INSERT INTO public."Training_form_list" ("Id", "Training_form", "Reduction") VAL
 
 
 --
--- TOC entry 3419 (class 0 OID 17615)
--- Dependencies: 214
+-- TOC entry 3482 (class 0 OID 16451)
+-- Dependencies: 232
 -- Data for Name: Type_program_list; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -806,8 +772,8 @@ INSERT INTO public."Type_program_list" ("Id", "Type") VALUES (3, 'Програм
 
 
 --
--- TOC entry 3456 (class 0 OID 0)
--- Dependencies: 231
+-- TOC entry 3501 (class 0 OID 0)
+-- Dependencies: 210
 -- Name: Admin_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -815,8 +781,8 @@ SELECT pg_catalog.setval('public."Admin_Id_seq"', 1, true);
 
 
 --
--- TOC entry 3457 (class 0 OID 0)
--- Dependencies: 221
+-- TOC entry 3502 (class 0 OID 0)
+-- Dependencies: 212
 -- Name: Direction_study_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -824,17 +790,17 @@ SELECT pg_catalog.setval('public."Direction_study_list_Id_seq"', 10, true);
 
 
 --
--- TOC entry 3458 (class 0 OID 0)
--- Dependencies: 223
+-- TOC entry 3503 (class 0 OID 0)
+-- Dependencies: 217
 -- Name: Issued_document_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Issued_document_list_Id_seq"', 4, true);
+SELECT pg_catalog.setval('public."Issued_document_list_Id_seq"', 6, true);
 
 
 --
--- TOC entry 3459 (class 0 OID 0)
--- Dependencies: 229
+-- TOC entry 3504 (class 0 OID 0)
+-- Dependencies: 220
 -- Name: Listener_status_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -842,17 +808,17 @@ SELECT pg_catalog.setval('public."Listener_status_list_Id_seq"', 5, true);
 
 
 --
--- TOC entry 3460 (class 0 OID 0)
--- Dependencies: 209
+-- TOC entry 3505 (class 0 OID 0)
+-- Dependencies: 221
 -- Name: Listeners_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Listeners_Id_seq"', 67, true);
+SELECT pg_catalog.setval('public."Listeners_Id_seq"', 1, false);
 
 
 --
--- TOC entry 3461 (class 0 OID 0)
--- Dependencies: 217
+-- TOC entry 3506 (class 0 OID 0)
+-- Dependencies: 223
 -- Name: Place_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -860,8 +826,8 @@ SELECT pg_catalog.setval('public."Place_list_Id_seq"', 5, true);
 
 
 --
--- TOC entry 3462 (class 0 OID 0)
--- Dependencies: 219
+-- TOC entry 3507 (class 0 OID 0)
+-- Dependencies: 214
 -- Name: Program_level_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -869,16 +835,16 @@ SELECT pg_catalog.setval('public."Program_level_list_Id_seq"', 8, true);
 
 
 --
--- TOC entry 3463 (class 0 OID 0)
--- Dependencies: 211
+-- TOC entry 3508 (class 0 OID 0)
+-- Dependencies: 225
 -- Name: Program_passport_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Program_passport_Id_seq"', 40, true);
+SELECT pg_catalog.setval('public."Program_passport_Id_seq"', 1, false);
 
 
 --
--- TOC entry 3464 (class 0 OID 0)
+-- TOC entry 3509 (class 0 OID 0)
 -- Dependencies: 227
 -- Name: Program_status_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
@@ -887,8 +853,8 @@ SELECT pg_catalog.setval('public."Program_status_list_Id_seq"', 4, true);
 
 
 --
--- TOC entry 3465 (class 0 OID 0)
--- Dependencies: 225
+-- TOC entry 3510 (class 0 OID 0)
+-- Dependencies: 229
 -- Name: Requirements_listeners_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -896,8 +862,8 @@ SELECT pg_catalog.setval('public."Requirements_listeners_list_Id_seq"', 19, true
 
 
 --
--- TOC entry 3466 (class 0 OID 0)
--- Dependencies: 215
+-- TOC entry 3511 (class 0 OID 0)
+-- Dependencies: 231
 -- Name: Training_form_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -905,8 +871,8 @@ SELECT pg_catalog.setval('public."Training_form_list_Id_seq"', 2, true);
 
 
 --
--- TOC entry 3467 (class 0 OID 0)
--- Dependencies: 213
+-- TOC entry 3512 (class 0 OID 0)
+-- Dependencies: 233
 -- Name: Type_program_list_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -914,7 +880,7 @@ SELECT pg_catalog.setval('public."Type_program_list_Id_seq"', 3, true);
 
 
 --
--- TOC entry 3263 (class 2606 OID 17742)
+-- TOC entry 3286 (class 2606 OID 16470)
 -- Name: Admin Admin_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -923,7 +889,7 @@ ALTER TABLE ONLY public."Admin"
 
 
 --
--- TOC entry 3253 (class 2606 OID 17654)
+-- TOC entry 3288 (class 2606 OID 16472)
 -- Name: Direction_study_list Direction_study_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -932,7 +898,7 @@ ALTER TABLE ONLY public."Direction_study_list"
 
 
 --
--- TOC entry 3265 (class 2606 OID 17755)
+-- TOC entry 3292 (class 2606 OID 16474)
 -- Name: Education_list Education_list_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -941,7 +907,7 @@ ALTER TABLE ONLY public."Education_list"
 
 
 --
--- TOC entry 3255 (class 2606 OID 17661)
+-- TOC entry 3294 (class 2606 OID 16476)
 -- Name: Issued_document_list Issued_document_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -950,7 +916,7 @@ ALTER TABLE ONLY public."Issued_document_list"
 
 
 --
--- TOC entry 3261 (class 2606 OID 17682)
+-- TOC entry 3298 (class 2606 OID 16478)
 -- Name: Listener_status_list Listener_status_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -959,7 +925,7 @@ ALTER TABLE ONLY public."Listener_status_list"
 
 
 --
--- TOC entry 3241 (class 2606 OID 17757)
+-- TOC entry 3296 (class 2606 OID 16480)
 -- Name: Listener Listeners_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -968,7 +934,7 @@ ALTER TABLE ONLY public."Listener"
 
 
 --
--- TOC entry 3249 (class 2606 OID 17640)
+-- TOC entry 3300 (class 2606 OID 16482)
 -- Name: Place_list Place_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -977,7 +943,7 @@ ALTER TABLE ONLY public."Place_list"
 
 
 --
--- TOC entry 3251 (class 2606 OID 17647)
+-- TOC entry 3290 (class 2606 OID 16484)
 -- Name: Program_level_list Program_level_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -986,7 +952,7 @@ ALTER TABLE ONLY public."Program_level_list"
 
 
 --
--- TOC entry 3243 (class 2606 OID 17606)
+-- TOC entry 3302 (class 2606 OID 16486)
 -- Name: Program_passport Program_passport_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -995,7 +961,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3259 (class 2606 OID 17675)
+-- TOC entry 3304 (class 2606 OID 16488)
 -- Name: Program_status_list Program_status_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1004,7 +970,7 @@ ALTER TABLE ONLY public."Program_status_list"
 
 
 --
--- TOC entry 3257 (class 2606 OID 17668)
+-- TOC entry 3306 (class 2606 OID 16490)
 -- Name: Requirements_listeners_list Requirements_listeners_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1013,7 +979,7 @@ ALTER TABLE ONLY public."Requirements_listeners_list"
 
 
 --
--- TOC entry 3247 (class 2606 OID 17631)
+-- TOC entry 3308 (class 2606 OID 16492)
 -- Name: Training_form_list Training_form_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1022,7 +988,7 @@ ALTER TABLE ONLY public."Training_form_list"
 
 
 --
--- TOC entry 3245 (class 2606 OID 17622)
+-- TOC entry 3310 (class 2606 OID 16494)
 -- Name: Type_program_list Type_program_list_pk; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1031,7 +997,7 @@ ALTER TABLE ONLY public."Type_program_list"
 
 
 --
--- TOC entry 3266 (class 2606 OID 17688)
+-- TOC entry 3311 (class 2606 OID 16495)
 -- Name: Listener Listeners_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1040,7 +1006,7 @@ ALTER TABLE ONLY public."Listener"
 
 
 --
--- TOC entry 3267 (class 2606 OID 17693)
+-- TOC entry 3312 (class 2606 OID 16500)
 -- Name: Program_passport Program_passport_fk0; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1049,7 +1015,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3268 (class 2606 OID 17698)
+-- TOC entry 3313 (class 2606 OID 16505)
 -- Name: Program_passport Program_passport_fk1; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1058,7 +1024,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3269 (class 2606 OID 17703)
+-- TOC entry 3314 (class 2606 OID 16510)
 -- Name: Program_passport Program_passport_fk2; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1067,7 +1033,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3270 (class 2606 OID 17708)
+-- TOC entry 3315 (class 2606 OID 16515)
 -- Name: Program_passport Program_passport_fk3; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1076,7 +1042,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3271 (class 2606 OID 17713)
+-- TOC entry 3316 (class 2606 OID 16520)
 -- Name: Program_passport Program_passport_fk4; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1085,7 +1051,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3272 (class 2606 OID 17718)
+-- TOC entry 3317 (class 2606 OID 16525)
 -- Name: Program_passport Program_passport_fk5; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1094,7 +1060,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3273 (class 2606 OID 17723)
+-- TOC entry 3318 (class 2606 OID 16530)
 -- Name: Program_passport Program_passport_fk6; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1103,7 +1069,7 @@ ALTER TABLE ONLY public."Program_passport"
 
 
 --
--- TOC entry 3274 (class 2606 OID 17728)
+-- TOC entry 3319 (class 2606 OID 16535)
 -- Name: Program_passport Program_passport_fk7; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1111,7 +1077,7 @@ ALTER TABLE ONLY public."Program_passport"
     ADD CONSTRAINT "Program_passport_fk7" FOREIGN KEY ("Status_id") REFERENCES public."Program_status_list"("Id");
 
 
--- Completed on 2022-04-24 14:01:31
+-- Completed on 2022-05-11 16:48:17 +05
 
 --
 -- PostgreSQL database dump complete
