@@ -89,12 +89,12 @@ document.body.append(
                 Block("tr", {
                     "children": [
                         Block("td", {"textContent": "О программе"}),
-                        Block("td", {"children": [Block("a", {"textContent": "Учебный план", "href": "/aboutProgram"})]})
+                        Block("td", {"children": [Block("a", {"textContent": "Учебный план", "href": "/aboutProgram/"+program.Id})]})
                 ]}),
             ]
         }),
             Block("input", {
-                "dataset": {"Title": program.Title, "Id": program.Id},
+                "dataset": {"Title": program.Title, "Id": program.Id, "Status": "1"},
                 "id": "subscribe_but",
                 "value": "Записаться",
                 "type": "button",

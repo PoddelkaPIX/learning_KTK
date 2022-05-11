@@ -75,6 +75,28 @@ function Block(block, props) {
     if ("href" in props) {
         bl.href = props.href;
     }
+    if ("disabled" in props) {
+        bl.disabled = props.disabled;
+    }
+    if ("title" in props) {
+        bl.title = props.title;
+    }
     
     return bl;
+}
+
+function Upload(files, callback) {
+    console.log("upload");
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", "/api/upload");
+    let data = new FormData();
+    
+    for (let file of files) {
+        data.append("MyFiles", file, file.name);
+        console.log(file, file.name);
+    }
+    xhr.onload = function (event) {
+        callback(JSON.parse(this.response));
+    }
+    xhr.send(data);
 }

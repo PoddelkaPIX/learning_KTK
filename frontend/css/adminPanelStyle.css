@@ -99,6 +99,93 @@ hr {
   margin-top: 0;
 }
 
+.listenerList #ListenerInformationTable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+.listenerList #ListenerInformationTable td {
+  text-align: left;
+  padding: 3px 5px;
+  font-size: 12px;
+  vertical-align: top;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.listenerList #ListenerInformationTable tr {
+  height: 30px;
+}
+
+.listenerList #ListenerInformationTable tr td:first-child {
+  padding: 0px;
+}
+
+.listenerList #ListenerInformationTable tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.listenerList #ListenerInformationTable tr:first-child {
+  font-size: 14px;
+  font-weight: bold;
+  background: rgba(0, 48, 240, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.passport {
+  grid-area: c;
+  overflow: auto;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+  -webkit-box-shadow: 4px 4px 12px #c9c9c9;
+          box-shadow: 4px 4px 12px #c9c9c9;
+}
+
+.passport #table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+.passport #table td {
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 14px;
+  vertical-align: top;
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.passport #table tr select {
+  width: 90%;
+}
+
+.passport #table tr:nth-child(odd) {
+  background: white;
+}
+
+.passport #table tr:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+
+.passport #table tr:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+
+.passport #table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.passport #table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
 #controlPanelView {
   display: -ms-grid;
   display: grid;
@@ -113,153 +200,28 @@ hr {
   display: flex;
 }
 
-#controlPanelView #interactionProgramList #switchProgramListsButton {
-  vertical-align: middle;
-  text-align: center;
-  width: 60px;
-  border: 2px solid #0b869d;
-  border-bottom: none;
-  background-color: #0b869d;
-  color: white;
-  padding: 7px;
-}
-
-#controlPanelView #interactionProgramList > input[type="search"] {
-  width: auto;
-  margin: 4px;
-}
-
 #controlPanelView #lists {
   -ms-grid-row: 2;
   -ms-grid-column: 1;
   grid-area: lists;
-}
-
-#controlPanelView #lists #activePrograms {
   padding: 4px;
   background-color: #e4e4e4;
   min-width: 150px;
-  height: 550px;
+  height: 700px;
   overflow-y: scroll;
   border: 2px solid #0b869d;
 }
 
-#controlPanelView #lists #activePrograms label {
-  cursor: pointer;
-}
-
-#controlPanelView #lists #applications {
-  padding: 4px;
-  background-color: #e4e4e4;
-  min-width: 150px;
-  height: 550px;
-  overflow-y: scroll;
-  border: 2px solid #0b869d;
-}
-
-#controlPanelView #lists #applications label {
+#controlPanelView #lists label {
   cursor: pointer;
 }
 
 #controlPanelView #opportunities {
+  padding: 8px;
   -ms-grid-row: 1;
   -ms-grid-row-span: 4;
   -ms-grid-column: 2;
   grid-area: opportunities;
-}
-
-#controlPanelView #opportunities #listenerList {
-  margin: 8px;
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-  border: 4px solid white;
-  border-radius: 30px;
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable td {
-  text-align: left;
-  padding: 3px 5px;
-  font-size: 12px;
-  vertical-align: top;
-  border-left: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable tr {
-  height: 30px;
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable tr td:first-child {
-  padding: 0px;
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable tr:nth-child(odd) {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-#controlPanelView #opportunities #listenerList #ListenerInformationTable tr:first-child {
-  font-size: 14px;
-  font-weight: bold;
-  background: rgba(0, 48, 240, 0.3);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-#controlPanelView #passport {
-  cursor: pointer;
-  grid-area: c;
-  overflow: auto;
-  border-radius: 10px;
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  width: 90%;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-  -webkit-box-shadow: 4px 4px 12px #c9c9c9;
-          box-shadow: 4px 4px 12px #c9c9c9;
-}
-
-#controlPanelView #passport #table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-  border: 4px solid white;
-  border-radius: 30px;
-}
-
-#controlPanelView #passport #table td {
-  text-align: left;
-  padding: 10px 15px;
-  font-size: 14px;
-  vertical-align: top;
-  border-left: 3px solid rgba(0, 0, 0, 0.2);
-}
-
-#controlPanelView #passport #table tr select {
-  width: 90%;
-}
-
-#controlPanelView #passport #table tr:nth-child(odd) {
-  background: white;
-}
-
-#controlPanelView #passport #table tr:first-child td:first-child {
-  border-top-left-radius: 10px;
-}
-
-#controlPanelView #passport #table tr:first-child td:last-child {
-  border-top-right-radius: 10px;
-}
-
-#controlPanelView #passport #table tr:last-child td:first-child {
-  border-bottom-left-radius: 10px;
-}
-
-#controlPanelView #passport #table tr:last-child td:last-child {
-  border-bottom-right-radius: 10px;
 }
 
 #controlPanelView #addProgramButton {
@@ -269,13 +231,42 @@ hr {
   height: 25px;
 }
 
-#archiveView #allProgramsList {
+#archiveView {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 20% 20%;
-      grid-template-columns: 20% 20%;
-  grid-column-gap: 3px;
-  grid-row-gap: 3px;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+      grid-template-areas: "interaction informations" "listsArcive informations";
+}
+
+#archiveView #interactionArchive {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: interaction;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 10px;
+  -ms-grid-columns: 50% 50%;
+      grid-template-columns: 50% 50%;
+  padding-right: 10px;
+}
+
+#archiveView #listsArcive {
+  padding: 4px;
+  background-color: #e4e4e4;
+  min-width: 150px;
+  height: 700px;
+  overflow-y: scroll;
+  border: 2px solid #0b869d;
+}
+
+#archiveView #informations {
+  padding: 8px;
+  margin-left: 10px;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  grid-area: informations;
 }
 
 .programCard {
@@ -291,6 +282,11 @@ hr {
   padding-right: 8px;
   background-color: #0b869d;
   color: white;
+}
+
+.programCard .timePeriod {
+  font-size: 10px;
+  font-style: italic;
 }
 
 .programCard:hover {
@@ -312,8 +308,7 @@ hr {
   -ms-grid-columns: calc(100% - 18px) 18px;
       grid-template-columns: calc(100% - 18px) 18px;
       grid-template-areas: "| i";
-  margin-bottom: 4px;
-  padding: 4px;
+  margin: 4px;
   background-color: white;
   border: 2px solid #0b869d;
   padding: 5px;
@@ -405,28 +400,105 @@ hr {
   cursor: pointer;
 }
 
-.programStatus {
-  border-radius: 100%;
-  min-width: 18px;
-  min-height: 18px;
-  width: 18px;
-  height: 18px;
-  border: 2px solid white;
+.subscribe_but {
+  margin: 10px;
+  margin-bottom: 0;
+  background-color: #21499e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.statusOpen {
+.subscribe_but:hover {
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#addProgramButton {
+  font-weight: bold;
+  border: none;
+  padding: 5px;
+  border-radius: 15px;
+  background-color: #0b6f9d;
+  color: white;
+  margin: 5px;
+}
+
+#addButton {
+  font-weight: bold;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
   background-color: #0b869d;
+  color: white;
+  margin: 10px;
 }
 
-.statusActive {
-  background-color: lime;
+#printButton {
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: none;
+  border-color: black;
+  margin: 10px;
 }
 
-.statusClose {
-  background-color: red;
+.programTitleName {
+  font-size: 20px;
+  font-weight: bold;
 }
 
-.statusFinished {
-  background-color: yellow;
+.titleStatusProgram {
+  padding: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+  margin-top: 0;
+  color: white;
+  border-radius: 5px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+.programTitleDate {
+  font-style: italic;
+}
+
+.switchListsButton {
+  vertical-align: middle;
+  text-align: center;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 150px;
+  border: 2px solid #0b869d;
+  border-bottom: none;
+  background-color: #0b869d;
+  color: white;
+  padding: 7px;
+}
+
+.switchListsButton i {
+  margin-left: auto;
+}
+
+.switchListsButton:hover {
+  background-color: #2299ae;
+  cursor: pointer;
+}
+
+input[type="search"] {
+  width: 100%;
+  margin: 4px;
 }
 /*# sourceMappingURL=adminPanelStyle.css.map */

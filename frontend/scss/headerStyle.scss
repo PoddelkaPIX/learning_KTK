@@ -16,30 +16,66 @@ header{
     #logo{
         margin: 5px;
     }
-    #menu_button{
+    #quickButtons{
+        margin: 5px;
         margin-left: auto;
-        cursor: pointer;
-        .menu_button_stick{
-            width: 55px;
-            height: 13px;
-            background-color: white;
-            border-radius: 4px;
-            margin: 5px;
+        color: white;
+        display: flex;
+        font-size: 45px;
+        column-gap: 20px;
+        #workingInformation:hover{
+            cursor: pointer;
+            transform: scale(1.03);
+            text-shadow: 1px 1px 1px #000;
+        }
+        #adminPanelLink:hover{
+            cursor: pointer;
+            transform: scale(1.03);
+            text-shadow: 1px 1px 1px #000;
+        }
+        a{
+            color: white;
         }
     }
     #box_menu{
+        background-color: #ebebeb;
         position: absolute;
         top:65px;
         right: 10px;
-        background-color: white;
         box-shadow: 0 3px 10px rgba(0,0,0,0.5);
         padding: 10px;
+        #statistics{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-gap: 10px;
+        }
+        #colorDesignations{
+            display: flex;
+            ul{
+                &>div{
+                    font-weight: bold;
+                    margin: 3px;
+                }
+                li{
+                    margin: 8px;
+                    display: flex;
+                    gap: 5px;
+                }
+            }
+            #listenerColor, #programColor{
+                display: grid;
+            }
+        }
     }
 }
 
 .hide{
     opacity: 0;
     display: none !important;
+}
+
+.noHover{
+    pointer-events: none;
 }
 
 #backWall{
@@ -51,4 +87,45 @@ header{
     z-index: 102;
     background-color: rgba(0, 0, 0, 0.60);
     overflow:hidden
+}
+.status{
+    border-radius: 100%;
+    min-width: 18px;
+    min-height: 18px;
+    width: 18px;
+    height: 18px;
+    border: 2px solid white;
+    display: block;
+}
+
+
+// Цвет индикатора статуса у программы
+.statusOpen{
+    background-color: rgb(255, 255, 255);
+}
+.statusActive{
+    background-color: #0b869d;
+}
+.statusClose{
+    background-color: red;
+}
+.statusFinished{
+    background-color: rgb(0, 255, 0);
+}
+
+// Цвет индикатора статуса у слушателя
+.statusWaiting{
+    background-color: rgb(255, 255, 255);
+}
+.statusLearning{
+    background-color: #0b869d;
+}
+.statusLearned{
+    background-color: rgb(0, 255, 0);
+}
+.statusLeaved{
+    background-color: red;
+}
+.statusInterrupted{
+    background-color: yellow;
 }

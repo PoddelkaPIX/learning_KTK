@@ -25,7 +25,7 @@ filtersDiv.append( Block("table", {
             Block("td", {"textContent": "Место реализации"})
         ]}),
         Block("tr", {"children": [
-            Block("td", {"children": [Block("input", {"id": "search", "type": "search"})]}),
+            Block("td", {"children": [Block("input", {"className": "filter", "id": "search", "type": "search"})]}),
             Block("td", {"children": [Block("select", {"className": "filter", "children": LevelOptions,
             "events": {onchange: updateProgramCards}})]}),
             Block("td", {"children": [Block("select", {"className": "filter", "children": TypeOptions, 
@@ -36,16 +36,18 @@ filtersDiv.append( Block("table", {
             "events": {onchange: updateProgramCards}})]}),
         ]})
     ]}))
-
-for (let program of programs){
-    if (program.Status == "Open"){
-        programCard.append(createProgramCard(program))
+if (programs){
+    for (let program of programs){
+        if (program.Status == "Open"){
+            programCard.append(createProgramCard(program))
+        }
     }
 }
 
+
 function createProgramCard(program){
     let programCard = Block("div", {
-        "dataset": {"Level": program.Level_id, "Type": program.Type_id, "Training_form": program.Training_form_id, "Place": program.Place_id},
+        "dataset": {"Title": program.Title, "Level": program.Level_id, "Type": program.Type_id, "Training_form": program.Training_form_id, "Place": program.Place_id},
         "className": "Program", "children": [
         Block("div", {"className": "Title", "textContent": "Уровень программы", "style": "grid-area: t_1"}),
         Block("div", {"className": "Title", "textContent": "Вид программы", "style": "grid-area: t_2"}),
@@ -87,10 +89,11 @@ function updateProgramCards(){
     let programs = document.getElementsByClassName("Program")
     let filters = document.getElementsByClassName("filter")
     for (let prog of programs){
-        if ((prog.dataset.Level == filters[0].value || filters[0].value == "0") && 
-        (prog.dataset.Type == filters[1].value || filters[1].value == "0") &&
-        (prog.dataset.Training_form == filters[2].value || filters[2].value == "0") &&
-        (prog.dataset.Place == filters[3].value || filters[3].value == "0")){
+        if ((prog.dataset.Title.toLowerCase().includes(filters[0].value.toLowerCase()) || filters[0].value == "")&& 
+            (prog.dataset.Level == filters[1].value || filters[1].value == "0") && 
+            (prog.dataset.Type == filters[2].value || filters[2].value == "0") &&
+            (prog.dataset.Training_form == filters[3].value || filters[3].value == "0") &&
+            (prog.dataset.Place == filters[4].value || filters[4].value == "0")){
             prog.classList.remove("hide")
         }else{prog.classList.add("hide")}  
     }
@@ -106,15 +109,7 @@ if (search) {
             timeout = 0;
         }
         timeout = setTimeout(() => {
-            let Titles = document.querySelectorAll(".ProgramTitle")
-            for (let title of Titles){
-                let text = title.firstChild.textContent.toLowerCase()
-                if (!text.includes(this.value.toLowerCase())){
-                    title.closest(".Program").classList.add("hide")
-                }else{
-                    title.closest(".Program").classList.remove("hide")
-                }
-            }
+            updateProgramCards()
         }, 400);
     }
 }

@@ -1,0 +1,31 @@
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% 70%;
+      grid-template-columns: 30% 70%;
+      grid-template-areas: "filters informations " "lists informations "   "addProgramButton informations " ". informations ";
+}
+
+main #lists {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: lists;
+  padding: 4px;
+  background-color: #e4e4e4;
+  min-width: 150px;
+  height: 700px;
+  overflow-y: scroll;
+  border: 2px solid #0b869d;
+}
+
+main #lists label {
+  cursor: pointer;
+}
+
+main #addProgramButton {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: addProgramButton;
+  height: 25px;
+}
+/*# sourceMappingURL=adminPanel2.css.map */

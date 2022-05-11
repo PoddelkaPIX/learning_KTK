@@ -1,0 +1,5 @@
+2022/05/10 14:16:18 querys.go:18: ff
+2022/05/10 14:16:39 querys.go:18: ff
+2022/05/10 18:00:57 querys.go:231: json: cannot unmarshal number into Go struct field input.Status of type string
+2022/05/10 19:38:03 querys.go:354: pq: столбец "Direction_id" в таблице "Program_passport" не существует
+2022/05/10 20:03:33 querys.go:648: open ../../resources/files/Изменения в устав.pdf: no such file or directory

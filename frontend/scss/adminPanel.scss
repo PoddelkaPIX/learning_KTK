@@ -1,0 +1,356 @@
+main{
+    display: grid;
+    grid-template-columns: 650px auto;
+    grid-template-areas:    "filters . "
+                            "switchListsButtons informations"
+                            "lists informations "  
+                            "addProgramButton informations "
+                            ". informations "; 
+    
+    #filters{
+        grid-area: filters;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 40px;
+        margin-bottom: 20px;
+        background-color: #ececec;
+        border: 2px solid #cacaca;
+        padding: 8px;
+        border-radius: 8px;
+        font-style: italic;
+        color: #8a8a8a;
+        font-size: 14px;
+        #search{
+            height: 25px;
+            grid-area: search;
+            width: 30%;
+            margin-left: auto;
+            margin-top: auto;
+        }
+    }
+    #switchListsButtons{
+        grid-area: switchListsButtons;
+        display: flex ;
+        column-gap: 10px;
+        #statusFilter{
+            margin-left: auto;
+            display: flex;
+            select{
+                padding: 4px;
+            }
+            #alerts{
+                margin-right:5px ;
+                display: flex;
+                column-gap: 10px;
+                padding: 5px;
+                div{
+                    column-gap: 2px;
+                    display: flex;
+                }
+            }
+        }
+        .switchListsButton{
+            background-color: white;
+            padding: 5px;
+            border: 2px solid #b1b1b1;
+            text-align: center;
+            cursor: pointer;
+            color: #b1b1b1;
+            border-bottom: none;
+        }
+        #ProgramsRadio:checked, #ListenersRadio:checked, #FormsRadio:checked{
+            & + .switchListsButton{
+                background-color: #1b9db4;
+                color: white;
+                font-weight: bold;
+                border: 2px solid #0b869d;
+                border-bottom: none;
+            }
+        } 
+    }
+    #lists{
+        grid-area: lists;
+        padding: 4px;
+        background-color: #e4e4e4;
+        min-width: 150px;
+        height: 700px;
+        overflow-y: scroll;
+        border: 2px solid #0b869d;
+        label{
+            cursor: pointer;
+            font-weight: bold;
+        }
+    }
+  
+    #addProgramButton{
+        grid-area: addProgramButton ;
+        height: 35px;
+    }
+
+    #informations{
+        grid-area: informations;
+        padding: 10px;
+        padding-top: 0;
+        .programTitleName{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .titleStatusProgram{
+            padding: 3px;
+            padding-left: 20px;
+            padding-right: 20px;
+            margin: 5px;
+            margin-top: 0;
+            color: white;
+            border-radius: 5px;
+            height: min-content;
+        }
+        .programTitleDate{
+            font-style: italic;
+        }        
+        #ListenerInformationTable{
+            display: table;
+            width: 100%;
+            border-collapse: collapse;
+            border: 4px solid white;
+            border-radius: 30px;
+            td {
+                text-align: left;
+                padding: 3px 5px;
+                font-size: 12px;
+                vertical-align: top;
+                border-left: 1px solid rgba(0, 0, 0, 0.20);
+            }
+            tr{
+                height: 30px;
+                td:first-child {
+                    padding: 0px;
+                }
+            }
+            tr:nth-child(odd) {
+                background: rgba(0, 0, 0, 0.1);
+            }
+            tr:first-child {
+                font-size: 14px;
+                font-weight: bold;
+    
+                background: rgba(0, 48, 240, 0.3);
+                border: 1px solid rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+    #printListersList{
+        padding: 5px;
+        background-color: white;
+        border: 1px solid;
+        border-radius: 8px;
+        &:hover{
+            cursor: pointer;
+            color: white;
+            background-color: rgb(29, 29, 29);
+        }
+    }
+}
+
+input[type="radio"]{
+    display: none;
+    opacity: 0;
+}
+.timePeriod{
+    font-size: 10px;
+    font-style: italic;
+}
+.programCard{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: calc(100% - 52px - 22px) 22px 30px 22px;
+    grid-template-areas: "| | | i";
+    overflow: auto;
+    margin-bottom: 3px;
+    padding: 4px;
+    padding-right: 8px;
+    background-color: #0b869d;
+    color: white;
+    .fa-triangle-exclamation{
+        margin: 3px;
+    }
+    &:hover{
+        background-color: #1b9db4;
+        transition: 0.2s;
+    }
+
+    .listenerCount{
+        margin-top: 2px;
+        margin-left: auto; 
+        margin-right: 5px;
+    }
+}
+
+.listener{
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: calc(100% - 22px) 18px;
+    grid-template-areas: "| i";
+    margin-bottom: 4px;
+    background-color: white;
+    border: 2px solid #0b869d;
+    color: #0b869d;
+    padding: 5px;
+    & > label {
+        cursor: pointer;
+    }
+    &:hover{
+        border: 2px solid #64ccdf;
+        transition: 0.1s
+    }
+}
+
+.selected{
+    background-color: #b30000;
+    color: white;
+    &:hover{
+        background-color: #c63434;
+        transition: 0.2s;
+    }
+}
+
+#statusMenu{
+    display:grid; 
+    position: fixed;
+    background-color: #ededed;
+    border: 2px solid #698b91;
+    padding: 5px;
+    position: fixed;
+    & input{
+        margin: 2px;
+    }
+}
+
+#backWall{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 102;
+    background-color: rgba(0, 0, 0, 0.60);
+    overflow:hidden;
+    #editListener {
+        width: 300px;
+        position: fixed;
+        top: 40%;
+        left: calc(50% - 150px);
+        padding: 10px;
+        display: grid;
+        row-gap: 5px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 4px 4px 20px #ccc;
+        i{
+            margin-left: auto;
+            cursor: pointer;
+        }
+    }
+}
+
+.passport {
+    grid-area: c;
+    overflow: auto;
+    border-radius: 10px;
+    background-color: #e5e5e5;
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    box-shadow: 4px 4px 12px rgb(201, 201, 201);
+    #table {
+        display: table;
+        width: 100%;
+        border-collapse: collapse;
+        border: 4px solid white;
+        border-radius: 30px;
+        td {
+            text-align: left;
+            padding: 10px 15px;
+            font-size: 14px;
+            vertical-align: top;
+            border-left: 3px solid rgba(0, 0, 0, 0.20);
+        }
+        tr{
+            select{
+                width: 90%;
+            }
+        }
+        tr:nth-child(odd) {
+            background: white;
+        }
+        tr:first-child td:first-child {
+            border-top-left-radius: 10px;
+        }
+    
+        tr:first-child td:last-child {
+            border-top-right-radius: 10px;
+        }
+    
+        tr:last-child td:first-child {
+            border-bottom-left-radius: 10px;
+        }
+        tr:last-child td:last-child {
+            border-bottom-right-radius: 10px;
+        }
+    }
+}
+
+.subscribe_but {
+    margin: 10px;
+    margin-bottom: 0;
+    background-color: #21499e;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+        background-color: black;
+        color: white;
+        border-radius: 30px;
+        transition: 0.2s;
+    }
+}
+
+.addButton{
+    cursor: pointer;
+    font-weight: bold;
+    border: none;
+    padding: 6px;
+    border-radius: 8px;
+    background-color: #0b6f9d;
+    color: white;
+    margin: 5px;
+    &:hover{
+        background-color: #1e88b9;
+    }
+}
+
+.leaved{
+    color: #959595;
+}
+
+.warning{
+    color: yellow;
+    text-shadow: 1px 0 1px #000, 
+                0 1px 1px #000, 
+                -1px 0 1px #000, 
+                0 -1px 1px #000;
+}
+
+.react{
+    color: red;
+    text-shadow: 1px 0 1px #000, 
+                0 1px 1px #000, 
+                -1px 0 1px #000, 
+                0 -1px 1px #000;
+
+}

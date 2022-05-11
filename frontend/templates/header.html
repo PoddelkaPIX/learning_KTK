@@ -1,25 +1,47 @@
 {{define "header"}}
 
 <header>
+    <link rel="icon" href="/resources/favicon.ico">
     <link rel="stylesheet" href="/css/headerStyle.css">
-    <link rel="shortcut icon" href="/resources/favicon.ico">
     <link rel="stylesheet" href="/resources/fontAwesome/css/all.css">
     <a href="/" id="logo">
         <img src="/resources/logo.png" width="97" height="52">
     </a>
     {{ if .}}
-        <div id="menu_button" onclick="show_menu()">
-            <div class="menu_button_stick"></div>
-            <div class="menu_button_stick"></div>
-            <div class="menu_button_stick"></div>
+        <div id="quickButtons">
+            <div id="workingInformation"><i class="fa-solid fa-circle-info"></i></div>
+            <a id="adminPanelLink" href="/adminPanel"><i class="fa-solid fa-gears"></i></a>
         </div>
         <div class="hide" id="box_menu">
-            <span id="show_status">Добро пожаловать!</span>
-            <hr>
-            <div id="admin_panel">
-                <a href="/adminPanel">Панель управления</a><br>
+            <div id="statistics">
+                <!--<div>Слушателей обучаются: 999</div>
+                <div>Слушателей обучилось: 1245</div>
+                <div>Открытых программ: 70</div>
+                <div>Активных программ: 12</div>
+                <div>Всего программ: 521</div>--> 
             </div>
-        </div>
+            <div id="colorDesignations">
+                <div id="listenerColor">
+                    <ul>
+                        <div>Статусы слушателя</div>
+                        <li> <label class="status statusWaiting"></label> Ожидает начала курса </li>
+                        <li> <label class="status statusLearning"></label> Обучается </li>
+                        <li> <label class="status statusLearned"></label> Обучился </li>
+                        <li> <label class="status statusLeaved"></label> Отчислен </li>
+                        <li> <label class="status statusInterrupted"></label> Подал заявку на курс,<br>но курс закрылся </li>
+                    </ul>
+                </div>
+                <div id="programColor">
+                    <ul>
+                        <div>Статусы программы</div>
+                        <li> <label class="status statusOpen"></label> Открыта для записи</label></li>
+                        <li> <label class="status statusActive"></label> Процесс обучения</li>
+                        <li> <label class="status statusFinished"></label> Курс закончен успешно </li>
+                        <li> <label class="status statusClose"></label> Курс приостановлен </li>
+                    </ul>
+                </div>
+            </div>
+        </div> 
         <script src="/js/general.js"></script>
         <script src="/js/headerScript.js"></script>
     {{ end }}

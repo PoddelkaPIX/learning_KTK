@@ -1,0 +1,425 @@
+main {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 650px auto;
+      grid-template-columns: 650px auto;
+      grid-template-areas: "filters . " "switchListsButtons informations" "lists informations "   "addProgramButton informations " ". informations ";
+}
+
+main #filters {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+  grid-area: filters;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-column-gap: 40px;
+          column-gap: 40px;
+  margin-bottom: 20px;
+  background-color: #ececec;
+  border: 2px solid #cacaca;
+  padding: 8px;
+  border-radius: 8px;
+  font-style: italic;
+  color: #8a8a8a;
+  font-size: 14px;
+}
+
+main #filters #search {
+  height: 25px;
+  grid-area: search;
+  width: 30%;
+  margin-left: auto;
+  margin-top: auto;
+}
+
+main #switchListsButtons {
+  -ms-grid-row: 2;
+  -ms-grid-column: 1;
+  grid-area: switchListsButtons;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+}
+
+main #switchListsButtons #statusFilter {
+  margin-left: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #switchListsButtons #statusFilter select {
+  padding: 4px;
+}
+
+main #switchListsButtons #statusFilter #alerts {
+  margin-right: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-column-gap: 10px;
+          column-gap: 10px;
+  padding: 5px;
+}
+
+main #switchListsButtons #statusFilter #alerts div {
+  -webkit-column-gap: 2px;
+          column-gap: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+main #switchListsButtons .switchListsButton {
+  background-color: white;
+  padding: 5px;
+  border: 2px solid #b1b1b1;
+  text-align: center;
+  cursor: pointer;
+  color: #b1b1b1;
+  border-bottom: none;
+}
+
+main #switchListsButtons #ProgramsRadio:checked + .switchListsButton, main #switchListsButtons #ListenersRadio:checked + .switchListsButton, main #switchListsButtons #FormsRadio:checked + .switchListsButton {
+  background-color: #1b9db4;
+  color: white;
+  font-weight: bold;
+  border: 2px solid #0b869d;
+  border-bottom: none;
+}
+
+main #lists {
+  -ms-grid-row: 3;
+  -ms-grid-column: 1;
+  grid-area: lists;
+  padding: 4px;
+  background-color: #e4e4e4;
+  min-width: 150px;
+  height: 700px;
+  overflow-y: scroll;
+  border: 2px solid #0b869d;
+}
+
+main #lists label {
+  cursor: pointer;
+  font-weight: bold;
+}
+
+main #addProgramButton {
+  -ms-grid-row: 4;
+  -ms-grid-column: 1;
+  grid-area: addProgramButton;
+  height: 35px;
+}
+
+main #informations {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 4;
+  -ms-grid-column: 2;
+  grid-area: informations;
+  padding: 10px;
+  padding-top: 0;
+}
+
+main #informations .programTitleName {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+main #informations .titleStatusProgram {
+  padding: 3px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+  margin-top: 0;
+  color: white;
+  border-radius: 5px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+}
+
+main #informations .programTitleDate {
+  font-style: italic;
+}
+
+main #informations #ListenerInformationTable {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+main #informations #ListenerInformationTable td {
+  text-align: left;
+  padding: 3px 5px;
+  font-size: 12px;
+  vertical-align: top;
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+main #informations #ListenerInformationTable tr {
+  height: 30px;
+}
+
+main #informations #ListenerInformationTable tr td:first-child {
+  padding: 0px;
+}
+
+main #informations #ListenerInformationTable tr:nth-child(odd) {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+main #informations #ListenerInformationTable tr:first-child {
+  font-size: 14px;
+  font-weight: bold;
+  background: rgba(0, 48, 240, 0.3);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+main #printListersList {
+  padding: 5px;
+  background-color: white;
+  border: 1px solid;
+  border-radius: 8px;
+}
+
+main #printListersList:hover {
+  cursor: pointer;
+  color: white;
+  background-color: #1d1d1d;
+}
+
+input[type="radio"] {
+  display: none;
+  opacity: 0;
+}
+
+.timePeriod {
+  font-size: 10px;
+  font-style: italic;
+}
+
+.programCard {
+  cursor: pointer;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(100% - 52px - 22px) 22px 30px 22px;
+      grid-template-columns: calc(100% - 52px - 22px) 22px 30px 22px;
+      grid-template-areas: "| | | i";
+  overflow: auto;
+  margin-bottom: 3px;
+  padding: 4px;
+  padding-right: 8px;
+  background-color: #0b869d;
+  color: white;
+}
+
+.programCard .fa-triangle-exclamation {
+  margin: 3px;
+}
+
+.programCard:hover {
+  background-color: #1b9db4;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.programCard .listenerCount {
+  margin-top: 2px;
+  margin-left: auto;
+  margin-right: 5px;
+}
+
+.listener {
+  cursor: pointer;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(100% - 22px) 18px;
+      grid-template-columns: calc(100% - 22px) 18px;
+      grid-template-areas: "| i";
+  margin-bottom: 4px;
+  background-color: white;
+  border: 2px solid #0b869d;
+  color: #0b869d;
+  padding: 5px;
+}
+
+.listener > label {
+  cursor: pointer;
+}
+
+.listener:hover {
+  border: 2px solid #64ccdf;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+.selected {
+  background-color: #b30000;
+  color: white;
+}
+
+.selected:hover {
+  background-color: #c63434;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+#statusMenu {
+  display: -ms-grid;
+  display: grid;
+  position: fixed;
+  background-color: #ededed;
+  border: 2px solid #698b91;
+  padding: 5px;
+  position: fixed;
+}
+
+#statusMenu input {
+  margin: 2px;
+}
+
+#backWall {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 102;
+  background-color: rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+#backWall #editListener {
+  width: 300px;
+  position: fixed;
+  top: 40%;
+  left: calc(50% - 150px);
+  padding: 10px;
+  display: -ms-grid;
+  display: grid;
+  row-gap: 5px;
+  border-radius: 10px;
+  background-color: #fff;
+  -webkit-box-shadow: 4px 4px 20px #ccc;
+          box-shadow: 4px 4px 20px #ccc;
+}
+
+#backWall #editListener i {
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.passport {
+  grid-area: c;
+  overflow: auto;
+  border-radius: 10px;
+  background-color: #e5e5e5;
+  padding: 20px;
+  width: 90%;
+  margin: auto;
+  -webkit-box-shadow: 4px 4px 12px #c9c9c9;
+          box-shadow: 4px 4px 12px #c9c9c9;
+}
+
+.passport #table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  border: 4px solid white;
+  border-radius: 30px;
+}
+
+.passport #table td {
+  text-align: left;
+  padding: 10px 15px;
+  font-size: 14px;
+  vertical-align: top;
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.passport #table tr select {
+  width: 90%;
+}
+
+.passport #table tr:nth-child(odd) {
+  background: white;
+}
+
+.passport #table tr:first-child td:first-child {
+  border-top-left-radius: 10px;
+}
+
+.passport #table tr:first-child td:last-child {
+  border-top-right-radius: 10px;
+}
+
+.passport #table tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+
+.passport #table tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+.subscribe_but {
+  margin: 10px;
+  margin-bottom: 0;
+  background-color: #21499e;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 10px;
+  font-size: 18px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.subscribe_but:hover {
+  background-color: black;
+  color: white;
+  border-radius: 30px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.addButton {
+  cursor: pointer;
+  font-weight: bold;
+  border: none;
+  padding: 6px;
+  border-radius: 8px;
+  background-color: #0b6f9d;
+  color: white;
+  margin: 5px;
+}
+
+.addButton:hover {
+  background-color: #1e88b9;
+}
+
+.leaved {
+  color: #959595;
+}
+
+.warning {
+  color: yellow;
+  text-shadow: 1px 0 1px #000,  0 1px 1px #000,  -1px 0 1px #000,  0 -1px 1px #000;
+}
+
+.react {
+  color: red;
+  text-shadow: 1px 0 1px #000,  0 1px 1px #000,  -1px 0 1px #000,  0 -1px 1px #000;
+}
+/*# sourceMappingURL=adminPanel.css.map */

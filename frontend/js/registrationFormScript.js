@@ -31,107 +31,105 @@ function createRegistrationForm(){
                                                 "style": "text-align: center;"
                                             }),
                                         ]}),
-                                            Block("div", {"className": "user-box",
+                                        Block("div", {"className": "user-box",
+                                                    "children": [
+                                                        Block("lable", {
+                                                            "textContent": "Фамилия"
+                                                        }),
+                                                        Block("input", {
+                                                            "id": "surname",
+                                                            "name": "surname",
+                                                            "required": true
+                                                        })
+                                        ]}),
+                                        Block("div", {"className": "user-box",
                                                         "children": [
-                                                            Block("lable", {
-                                                                "textContent": "Фамилия"
-                                                            }),
+                                                            Block("lable", {"textContent": "Имя"}),
                                                             Block("input", {
-                                                                "id": "surname",
-                                                                "name": "surname",
+                                                                "id": "name",
+                                                                "name": "name",
                                                                 "required": true
                                                             })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                                            "children": [
-                                                                Block("lable", {"textContent": "Имя"}),
-                                                                Block("input", {
-                                                                    "id": "name",
-                                                                    "name": "name",
-                                                                    "required": true
-                                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                                            "children": [
-                                                                Block("lable", {"textContent": "Отчество"}),
-                                                                Block("input", {
-                                                                    "id": "patronymic",
-                                                                    "name": "patronymic",
-                                                                    "required": true
-                                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                            "children": [
-                                                Block("lable", {
-                                                    "textContent": "Дата рождения"
-                                                }),
-                                                Block("input", {
-                                                    "id": "birth_date",
-                                                    "name": "birth_date",
-                                                    "type": "date",
-                                                    "style": "text-align: center ;",
-                                                    "required": true
-                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                            "children": [
-                                                Block("lable", {
-                                                    "textContent": "Снилс"
-                                                }),
-                                                Block("input", {
-                                                    "id": "snils",
-                                                    "name": "snils",
-                                                    "required": true
-                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                            "children": [
-                                                Block("lable", {
-                                                    "textContent": "Почта"
-                                                }),
-                                                Block("input", {
-                                                    "id": "email",
-                                                    "name": "email",
-                                                    "required": true
-                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                            "children": [
-                                                Block("lable", {
-                                                    "textContent": "Телефон"
-                                                }),
-                                                Block("input", {
-                                                    "id": "telephone",
-                                                    "name": "telephone",
-                                                    "type": "tel",
-                                                    "required": true
-                                                })
-                                            ]}),
-                                            Block("div", {"className": "user-box",
-                                            "children": [
-                                                Block("lable", {
-                                                    "textContent": "Образование"
-                                                }),
-                                                Block("select", {
-                                                    "id": "education",
-                                                    "name": "education",
-                                                    "style": "width:100%;",
-                                                    "children": educationList
-                                                    })
-                                            ]}),
-                                            Block("span", {
-                                                "id": "failedAlert",
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                                        "children": [
+                                                            Block("lable", {"textContent": "Отчество"}),
+                                                            Block("input", {
+                                                                "id": "patronymic",
+                                                                "name": "patronymic",
+                                                                "required": true
+                                                            })
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                        "children": [
+                                            Block("lable", {
+                                                "textContent": "Дата рождения"
                                             }),
                                             Block("input", {
-                                                "type": "button", 
-                                                "dataset": {Program: this.dataset.Id, Status: this.dataset.Status},
-                                                "value": "Записаться", 
-                                                "id": "registration_but",
-                                                "events": {onclick: checkFields}
+                                                "id": "birth_date",
+                                                "name": "birth_date",
+                                                "type": "date",
+                                                "style": "text-align: center ;",
+                                                "required": true
                                             })
-                                            ]
-                                }
-                            )
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                        "children": [
+                                            Block("lable", {
+                                                "textContent": "Снилс"
+                                            }),
+                                            Block("input", {
+                                                "id": "snils",
+                                                "name": "snils",
+                                                "required": true
+                                            })
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                        "children": [
+                                            Block("lable", {
+                                                "textContent": "Почта"
+                                            }),
+                                            Block("input", {
+                                                "id": "email",
+                                                "name": "email",
+                                                "required": true
+                                            })
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                        "children": [
+                                            Block("lable", {
+                                                "textContent": "Телефон"
+                                            }),
+                                            Block("input", {
+                                                "id": "telephone",
+                                                "name": "telephone",
+                                                "type": "tel",
+                                                "required": true
+                                            })
+                                        ]}),
+                                        Block("div", {"className": "user-box",
+                                        "children": [
+                                            Block("lable", {
+                                                "textContent": "Образование"
+                                            }),
+                                            Block("select", {
+                                                "id": "education",
+                                                "name": "education",
+                                                "style": "width:100%;",
+                                                "children": educationList
+                                                })
+                                        ]}),
+                                        Block("span", {
+                                            "id": "failedAlert",
+                                        }),
+                                        Block("input", {
+                                            "type": "button", 
+                                            "dataset": {Program: this.dataset.Id, Status: this.dataset.Status},
+                                            "value": "Записаться", 
+                                            "id": "registration_but",
+                                            "events": {onclick: checkFields}
+                                        })
+                            ]})
                         ]})
                         )
 }
@@ -178,7 +176,7 @@ function checkFields(){
 
     failedAlert.innerHTML = text + "<br>"
     if (text == ""){
-        Send("POST", "/api/queryAddListener", {
+        Send("POST", "/api/AddListener", {
             Surname: surname, 
             Name: name, 
             Patronymic: patronymic, 

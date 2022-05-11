@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Панель управления</title>
+    <link rel="stylesheet" href="/css/adminPanelStyle.css">
+    <link rel="stylesheet" href="/css/registrationFormStyle.css">
+</head>
+
+<body>
+    {{template "header" .}}
+    <div class="wrapper">
+        <input type="radio" name="select" id="controlView_input" class="hide" checked>
+        <label for="controlView_input" id="control_label" class="option">
+            <div class="dot"></div>
+            <span>Управление</span>
+            </label>
+        <input type="radio" name="select" id="libraryView_input" class="hide">
+        <label for="libraryView_input" id="library_label" class="option"> 
+            <div class="dot"></div>
+            <span>Архив</span>
+        </label>
+    </div>
+    <hr>
+    <main>
+        <div id="controlPanelView">
+            <div style="grid-area: search;" id="interactionProgramList">
+                <input id="controlCheckbox" type="checkbox" class="hide">
+                <label id="switchProgramListsButton" class="switchListsButton" for="controlCheckbox" data-listid="lists">
+                    <div id="switchListsTitleControlButton">Программы</div>
+                    <i class="fa fa-repeat"></i>
+                </label>
+                <input type="search" id="search">
+            </div>
+            <div id="lists">
+                <div id="activePrograms"></div>
+                <div id="applications" class="hide"></div>
+            </div>
+            <div id="opportunities"></div>
+            <input type="button", value="Добавить программу" id="addProgramButton">
+        </div>
+
+        <div id="archiveView" class="hide">
+            <div id="interactionArchive">
+                <input id="startDate" type="date">
+                <input id="finishDate" type="date">
+                <input id="archiveCheckbox" type="checkbox" class="hide">
+                <label id="switchArchiveListsButton" class="switchListsButton" for="archiveCheckbox" data-listid="listsArcive">
+                    <div id="switchListsTitleArchiveButton">Программы</div>
+                    <i class="fa fa-repeat"></i>
+                </label>
+                <input type="search" id="searchArc">
+            </div>
+            <div id="listsArcive">
+                <div id="allProgramsList"></div>
+                <div id="allListenersList" class="hide"></div>
+            </div>
+            <div id="informations"></div>
+        </div>
+        <div id="windows"></div>
+    </main>
+    <script src="/js/general.js"></script>
+    <script src="/js/registrationFormScript.js"></script>
+    <script src="/js/adminPanel/common.js"></script>
+    <script src="/js/adminPanel/controlView.js"></script>
+    <script src="/js/adminPanel/archiveView.js"></script>
+</body>
+
+</html>

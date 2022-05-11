@@ -5,6 +5,7 @@
     <title>Подробнее о программах</title>
 </head>
 <body>
-    <embed src="/resources/pricePrograms.pdf" width="100%" height="2100px" />
+    {{template "header" .Admin}}
+    <embed src="/resources/files/{{ .fileName }}" width="100%" height="1080px" />
 </body>
 </html>

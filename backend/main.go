@@ -6,6 +6,7 @@ import (
 )
 
 // it-ktkLearning45
+
 func main() {
 	cfg := settings.Load("../settings.cfg")
 	db.Connect(*cfg)

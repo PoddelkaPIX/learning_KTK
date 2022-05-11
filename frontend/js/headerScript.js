@@ -1,6 +1,6 @@
-let menu_but = document.querySelector("#menu_button")
+let workingInformation = document.querySelector("#workingInformation")
 let box_menu = document.querySelector("#box_menu")
-menu_but.onclick = function(){
+workingInformation.onclick = function(){
     if (box_menu.classList.value.includes("hide")){
         box_menu.classList.remove("hide")
     }else{
@@ -10,7 +10,8 @@ menu_but.onclick = function(){
 
 Send("post", "/api/checkAdmin", null, res =>{
     if (!res.login){
-        document.querySelector("#menu_button").remove()
+        workingInformation.remove()
+        box_menu.remove()
         return
     } 
 })

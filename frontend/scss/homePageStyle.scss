@@ -1,22 +1,36 @@
-body {
+body , html{
     padding: 0;
     margin: 0;
-    padding-top: 100px;
-    padding-left: 3%;
-    padding-right: 3%;
+    height: 100%;
 }
+
+
+.page{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    #main{
+        padding-left: 3%;
+        padding-right: 3%;
+        flex: 1 1 auto;
+    }
+}
+
 
 #filters{
     display: flex;
     text-align: center;
+    color: #6a6a6a;
     #table{
-        border-bottom: 3px solid #0b869d;
+        background-color: #ececec;
+        border: 2px solid #cacaca;
         border-top: none;
         border-end-end-radius: 15px;
         border-end-start-radius: 15px;
         padding: 5px;
         font-size: 14px;
         box-shadow: 4px 4px 12px rgb(201, 201, 201);
+        overflow: hidden;
         & > tr{
             font-weight: bold;
         }
@@ -24,6 +38,11 @@ body {
     select{
         width: 100%;
         margin: 3px;
+        color: #474747;
+        border: 1px solid #818181;
+        background-color: #ffffff;
+        padding: 3px;
+        border-radius: 5px;
     }
 }
 
@@ -65,6 +84,15 @@ body {
         min-width: 0;
         overflow: hidden;
         text-overflow: ellipsis;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .Program{
+        font-size: 9px;
+        .Title{
+            font-size: 10px; 
+        }
     }
 }
 

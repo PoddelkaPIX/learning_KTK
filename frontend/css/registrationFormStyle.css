@@ -12,7 +12,7 @@
 #forma {
   width: 300px;
   position: fixed;
-  top: 60px;
+  top: 30px;
   left: calc(50% - 150px);
   padding: 10px;
   display: -ms-grid;
@@ -34,7 +34,42 @@
   color: red;
 }
 
+@media screen and (max-width: 980px) {
+  #forma {
+    width: 600px;
+    position: fixed;
+    top: 10px;
+    left: calc(50% - 300px);
+    padding: 10px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 45% 45%;
+        grid-template-columns: 45% 45%;
+        grid-template-areas: "title title" ". .";
+    row-gap: 2px;
+    border-radius: 10px;
+    background-color: #fff;
+    -webkit-box-shadow: 4px 4px 20px #ccc;
+            box-shadow: 4px 4px 20px #ccc;
+    z-index: 102;
+  }
+  #forma #title {
+    -ms-grid-row: 1;
+    -ms-grid-column: 1;
+    -ms-grid-column-span: 2;
+    grid-area: title;
+  }
+  #forma span {
+    font-size: 18px;
+  }
+  #forma #failedAlert {
+    text-align: center;
+    color: red;
+  }
+}
+
 #registration_but {
+  border: none;
   background-color: #21499e;
   color: white;
   padding: 10px;

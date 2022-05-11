@@ -27,7 +27,9 @@ type Program struct {
 	Issued_document_id      string
 	Requirement_id          string
 	Status_id               string
+	Plan					string
 }
+
 
 type Listener struct {
 	Id                string

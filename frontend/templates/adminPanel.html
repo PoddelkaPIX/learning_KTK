@@ -4,64 +4,71 @@
 <head>
     <meta charset="UTF-8">
     <title>Панель управления</title>
-    <link rel="stylesheet" href="/css/adminPanelStyle.css">
+    <link rel="stylesheet" href="/css/adminPanel.css">
     <link rel="stylesheet" href="/css/registrationFormStyle.css">
 </head>
 
 <body>
     {{template "header" .}}
-    <div class="wrapper">
-        <input type="radio" name="select" id="controlView_input" class="hide" checked>
-        <label for="controlView_input" id="control_label" class="option">
-            <div class="dot"></div>
-            <span>Управление</span>
-            </label>
-        <input type="radio" name="select" id="libraryView_input" class="hide">
-        <label for="libraryView_input" id="library_label" class="option"> 
-            <div class="dot"></div>
-            <span>Архив</span>
-        </label>
-    </div>
-    <hr>
     <main>
-        <div id="controlPanelView">
-            <div style="grid-area: search;" id="interactionProgramList">
-                <div id="switchProgramListsButton">
-                    <i class="fa fa-repeat"></i>
+        <div id="filters"> 
+            <div class="dateFilter">
+                <span>С</span><br>
+                <input id="firstPoint" type="date">
+            </div >
+            <div class="dateFilter">
+                <span>По</span><br>
+                <input id="lastPoint" type="date">
+            </div>
+            <input id="search" type="search" placeholder="Поиск">
+        </div>
+        <div id="switchListsButtons">
+            <input id="ProgramsRadio" type="radio" name="list" checked>
+            <label class="switchListsButton" for="ProgramsRadio">Программы</label>
+            <input id="ListenersRadio" type="radio" name="list">
+            <label class="switchListsButton" for="ListenersRadio">Слушатели</label>
+            <div id="statusFilter">
+                <div id="alerts">
+                    <div id="warnings">
+                        <i class="fa-solid fa-triangle-exclamation warning" title="Нужен ещё один слушатель для полной группы"></i>:
+                        <div id="warningCount">0</div>
+                    </div>
+                    <div id="reacts">
+                        <i class="fa-solid fa-triangle-exclamation react" title="Группа набрана"></i>:
+                        <div id="reactCount">0</div>
+                    </div>
                 </div>
-                <input type="search">
-            </div>
-            <div id="lists">
-                <div id="activePrograms"></div>
-                <div id="applications" class="hide"></div>
-            </div>
-            <div id="opportunities"></div>
-            <input type="button", value="Добавить программу" id="addProgramButton">
-        </div>
-
-        <div id="archiveView" class="hide">
-            <div id="interactionArchive">
-                <select id="subjectSelect">
-                    <option>Программы</option>
-                    <option>Пользователи</option>
+                <select id="programStatusFilter">
+                    <option value="-">Все</option>
+                    <option value="Active">Активные</option>
+                    <option value="Open">Открытые</option>
+                    <option value="OpenForm">Открытые с заявками</option>
+                    <option value="Finished">Законченные</option>
+                    <option value="Close">Закрытые</option>
                 </select>
-                <input type="search">
-                <input id="startDate" type="date">
-                <input id="finishDate" type="date">
+                <select id="listenerStatusFilter" class="hide">
+                    <option value="-">Все</option>
+                    <option value="1">Подали заявку</option>
+                    <option value="2">Обучаются</option>
+                    <option value="3">Успешно обучились</option>
+                    <option value="4">Отчислены</option>
+                    <option value="5">Программа закрылась</option>
+                    
+                </select>
             </div>
-            <div id="listsArcive">
-                <div id="allProgramsList"></div>
-                <div id="allListenersList"></div>
-            </div>
-            <div id="informations"></div>
         </div>
+        <div id="lists">
+            <div id="programsList"></div>
+            <div id="listenersList" class="hide"></div>
+            <div id="FormsList" class="hide"></div>
+        </div>
+        <input id="addProgramButton" class="addButton" type="button", value="Добавить программу">
+        <div id="informations"></div>
         <div id="windows"></div>
     </main>
     <script src="/js/general.js"></script>
     <script src="/js/registrationFormScript.js"></script>
-    <script src="/js/adminPanel/common.js"></script>
-    <script src="/js/adminPanel/controlView.js"></script>
-    <script src="/js/adminPanel/archiveView.js"></script>
+    <script src="/js/adminPanel.js"></script>
 </body>
 
 </html>

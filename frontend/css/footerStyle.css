@@ -1,0 +1,28 @@
+footer {
+  -webkit-box-shadow: 8px 8px 18px #c9c9c9;
+          box-shadow: 8px 8px 18px #c9c9c9;
+  padding: 25px;
+  background-color: #ececec;
+  border: 2px solid #cacaca;
+  margin-top: auto;
+  text-align: center;
+  color: #6a6a6a;
+}
+
+footer #contacts {
+  text-align: left;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 33% 33% 33%;
+      grid-template-columns: 33% 33% 33%;
+  grid-gap: 25px;
+}
+
+footer #contacts div a {
+  color: #0b869d;
+}
+
+footer #contacts div span {
+  font-weight: bold;
+}
+/*# sourceMappingURL=footerStyle.css.map */

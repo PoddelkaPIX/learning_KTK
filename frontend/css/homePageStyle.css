@@ -1,9 +1,26 @@
-body {
+body, html {
   padding: 0;
   margin: 0;
-  padding-top: 100px;
+  height: 100%;
+}
+
+.page {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page #main {
   padding-left: 3%;
   padding-right: 3%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
 }
 
 #filters {
@@ -11,10 +28,12 @@ body {
   display: -ms-flexbox;
   display: flex;
   text-align: center;
+  color: #6a6a6a;
 }
 
 #filters #table {
-  border-bottom: 3px solid #0b869d;
+  background-color: #ececec;
+  border: 2px solid #cacaca;
   border-top: none;
   border-end-end-radius: 15px;
   border-end-start-radius: 15px;
@@ -22,6 +41,7 @@ body {
   font-size: 14px;
   -webkit-box-shadow: 4px 4px 12px #c9c9c9;
           box-shadow: 4px 4px 12px #c9c9c9;
+  overflow: hidden;
 }
 
 #filters #table > tr {
@@ -31,6 +51,11 @@ body {
 #filters select {
   width: 100%;
   margin: 3px;
+  color: #474747;
+  border: 1px solid #818181;
+  background-color: #ffffff;
+  padding: 3px;
+  border-radius: 5px;
 }
 
 .Program {
@@ -78,6 +103,15 @@ body {
   min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 980px) {
+  .Program {
+    font-size: 9px;
+  }
+  .Program .Title {
+    font-size: 10px;
+  }
 }
 
 .buttons_grup {

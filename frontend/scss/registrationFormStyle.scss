@@ -12,7 +12,7 @@
 #forma {
     width: 300px;
     position: fixed;
-    top: 60px;
+    top: 30px;
     left: calc(50% - 150px);
     padding: 10px;
     display: grid;
@@ -30,7 +30,38 @@
     }
 }
 
+
+@media screen and (max-width: 980px) {
+    #forma {
+        width: 600px;
+        position: fixed;
+        top: 10px;
+        left: calc(50% - 300px);
+        padding: 10px;
+        display: grid;
+        grid-template-columns: 45% 45%;
+        grid-template-areas: "title title"
+                             ". .";
+        row-gap: 2px;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 4px 4px 20px #ccc;
+        z-index: 102;
+        #title{
+            grid-area: title;
+        }
+        span {
+            font-size: 18px;
+        }
+        #failedAlert{
+            text-align: center;
+            color: red;
+        }
+    }
+}
+
 #registration_but {
+    border: none;
     background-color: #21499e;
     color: white;
     padding: 10px;
