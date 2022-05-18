@@ -124,7 +124,7 @@ function createRegistrationForm(){
                                         }),
                                         Block("input", {
                                             "type": "button", 
-                                            "dataset": {Program: this.dataset.Id, Status: this.dataset.Status},
+                                            "dataset": {"Id": this.dataset.Id, "Status": this.dataset.Status},
                                             "value": "Записаться", 
                                             "id": "registration_but",
                                             "events": {onclick: checkFields}

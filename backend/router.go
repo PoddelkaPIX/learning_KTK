@@ -51,6 +51,7 @@ func StartRouter(conf settings.SettingServer) {
 	_ = router.Run(cfg.Host + ":" + cfg.Port)
 }
 func homePageHandler(c *gin.Context) {
+	queryPrograms()
 	c.HTML(200, "homePage.html", queryCheckAdmin(c))
 }
 
@@ -108,20 +109,20 @@ func checkAdmin(c *gin.Context) {
 
 func addProgram(c *gin.Context) {
 	type input struct {
-		Title    		string 
-		Level       	string 
-		Type 			string
-		Direction  		string 
-		Forma 			string
-		Size 			string
-		Length 			string
-		Price 			string
-		Place 			string
-		Min_grup_size 	string
-		Start_date 		string
-		Docum 			string
-		Requirement 	string
-		Plan string
+		Title         string
+		Level         string
+		Type          string
+		Direction     string
+		Forma         string
+		Size          string
+		Length        string
+		Price         string
+		Place         string
+		Min_grup_size string
+		Start_date    string
+		Docum         string
+		Requirement   string
+		Plan          string
 	}
 
 	var i input

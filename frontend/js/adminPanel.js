@@ -85,13 +85,10 @@ function fillListenersList(){
         return
     }
     for (let listener of listenerArray){
-        if (listener.Surname == "вырывт"){
-            console.log(listener);
-        }
         lis = Block("div", {
             "className": "listener",
-            "dataset": {"ListenerId": listener.Id, "Id": listener.Program_id, "Status": listener.Status_id, "Start_date": listener.Registration_date},
-            "events": {onclick: openListenersListTable, oncontextmenu: listenerStatusMenu},
+            "dataset": {"Listener_Id": listener.Id, "Id": listener.Program_id, "Status": listener.Status_id, "Start_date": listener.Registration_date},
+            "events": {onclick: clickOnCard, oncontextmenu: listenerStatusMenu},
             "children": [
                 Block("div", {"children": [
                     Block("label", {"textContent": listener.Surname + " " + listener.Name + " " + listener.Patronymic}),
@@ -100,7 +97,7 @@ function fillListenersList(){
                 Block("div", {"style": "border: 3px solid #0b869d;",  "className": "status " + listenerStatusSelection(listener.Status)})
             ]
         })
-        if ("Listener: " + lis.dataset.ListenerId == selectedCard){
+        if ("Listener: " + lis.dataset.Listener_Id == selectedCard){
             lis.classList.add("selected")
         }
         if (listenerStatusFilter.value == lis.dataset.Status || listenerStatusFilter.value == "-" ){
@@ -111,23 +108,26 @@ function fillListenersList(){
     }
 }
 
-function openListenersListTable(card = null){
-    if (this.className == "listener"){
-        selectedCard = "Listener: " + this.dataset.ListenerId
-    }else if (this.className == "programCard"){
-        selectedCard = "Program: " + this.dataset.Id
+function clickOnCard(){
+    openListenersListTable(this)
+}
+function openListenersListTable(card){
+    if (card.className == "listener"){
+        selectedCard = "Listener: " + card.dataset.Listener_Id
+    }else if (card.className == "programCard"){
+        selectedCard = "Program: " + card.dataset.Id
     }
     update()
     informations.innerHTML = ""
     let program
     for (let prog of programArray){
-        if (this.dataset.Id == prog.Id){
+        if (card.dataset.Id == prog.Id){
             program = prog
         }
     }
     informations.append(
         createProgramCard(program),
-        createListenersTable(this.dataset)
+        createListenersTable(card.dataset)
         )
     let checkBoxListeners = document.getElementsByClassName("checkBoxListener")
     let checkBox = document.getElementById("selectAllCheckBox")
@@ -170,7 +170,7 @@ function createListenersTable(dataset){
 
         if (dataset.Id == listener.Program_id){
             let lis = Block("tr", {
-                "dataset": {"ListenerId": listener.Id},
+                "dataset": {"Listener_Id": listener.Id, "Id": listener.Program_id},
                 "style": "cursor: pointer;",
                 "events": {oncontextmenu: listenerStatusMenu},
                 "children": [
@@ -271,7 +271,7 @@ function createProgramCard(program){
             "className": "programCard",
             "dataset": {"Id": program.Id, "Title": program.Title, "Start_date": program.Start_date, 
                         "Time_period": program.Time_period, "Status": program.Status} ,
-            "events": {onclick: openListenersListTable, oncontextmenu: CardMenu},
+            "events": {onclick: clickOnCard, oncontextmenu: CardMenu},
             "children": [
                 Block("div", {"children": [
                     Block("label", {"textContent": program.Title,}),
@@ -365,7 +365,7 @@ function CardMenu(event){
                     "events": {onclick: сhangeStatusProgram}
                 }),
                 Block("input", {
-                    "dataset": {"Id": this.dataset.Id, "View": this.dataset.View},
+                    "dataset": {"Id": this.dataset.Id},
                     "type": "button",
                     "value": "Посмотреть пасспорт",
                     "events": {onclick: openProgramPassport}
@@ -387,7 +387,7 @@ function CardMenu(event){
         case "Close":
             buttonsGroup.push(
                     Block("input", {
-                        "dataset": {"Id": this.dataset.Id, "View": this.dataset.View},
+                        "dataset": {"Id": this.dataset.Id},
                         "type": "button",
                         "value": "Посмотреть пасспорт",
                         "events": {onclick: openProgramPassport}
@@ -403,7 +403,7 @@ function CardMenu(event){
         case "Finished":
             buttonsGroup.push(
             Block("input", {
-                "dataset": {"Id": this.dataset.Id, "View": this.dataset.View},
+                "dataset": {"Id": this.dataset.Id},
                 "type": "button",
                 "value": "Посмотреть пасспорт",
                 "events": {onclick: openProgramPassport}
@@ -437,7 +437,7 @@ function listenerStatusMenu(event){
     let buttonsGroup = []
 
     for (let lis of listenerArray){
-        if (lis.Id == this.dataset.ListenerId){
+        if (lis.Id == this.dataset.Listener_Id){
             listener = lis
         }
     }
@@ -446,13 +446,13 @@ function listenerStatusMenu(event){
         case "Waiting":
             buttonsGroup.push(
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Редактировать",
                     "events": {onclick: editListenerForm }
                 }),
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Удалить",
                     "events": {onclick: deleteListener}
@@ -462,7 +462,7 @@ function listenerStatusMenu(event){
         case "Active":
             buttonsGroup.push(
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Редактировать",
                     "events": {onclick: editListenerForm}
@@ -472,13 +472,13 @@ function listenerStatusMenu(event){
         case "Learning":
             buttonsGroup.push(
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Редактировать",
                     "events": {onclick: editListenerForm}
                 }),
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId, "Status": "4"},
+                    "dataset": {"Id": this.dataset.Id, "Listener_Id": this.dataset.Listener_Id, "Status": "4"},
                     "type": "button",
                     "value": "Отчислить",
                     "events": {onclick: сhangeStatusListener}
@@ -491,7 +491,7 @@ function listenerStatusMenu(event){
         case "Leaved":
             buttonsGroup.push(
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Удалить",
                     "events": {onclick: deleteListener}
@@ -501,7 +501,7 @@ function listenerStatusMenu(event){
         case "Interrupted":
             buttonsGroup.push(
                 Block("input", {
-                    "dataset": {"Id": this.dataset.ListenerId},
+                    "dataset": {"Listener_Id": this.dataset.Listener_Id, "Id": this.dataset.Id},
                     "type": "button",
                     "value": "Удалить",
                     "events": {onclick: deleteListener}
@@ -513,7 +513,7 @@ function listenerStatusMenu(event){
         "id": "statusMenu",
         "style": "left:" + String(mouse_x) +"px; top:" + String(mouse_y) +"px;",
         "children": [
-            Block("div", {"textContent": "Id: " + this.dataset.ListenerId}),
+            Block("div", {"textContent": "Id: " + this.dataset.Listener_Id}),
             ...buttonsGroup
         ]
     }))
@@ -550,20 +550,22 @@ function listenerStatusSelection(status){
 function сhangeStatusProgram(){
     if (confirm('Подтвердить изменение статуса программы?')){
         Send("PUT", "/api/changeStatusProgram", {Id: this.dataset.Id, Status: this.dataset.Status})
+        openListenersListTable(this)
         update()
-        informations.innerHTML = ""
     }
 }
 function сhangeStatusListener(){
     if (confirm('Подтвердить изменение статуса слушателя?')){
-        Send("PUT", "/api/changeStatusListener", {Id: this.dataset.Id, Status: this.dataset.Status})
+        Send("PUT", "/api/changeStatusListener", {Id: this.dataset.Listener_Id, Status: this.dataset.Status})
+        openListenersListTable(this)
         update()
     }
 }
 
 function deleteListener(){
     if (confirm('Вы уверены, что хоите удалить слушателя?')){
-        Send("DELETE", "/api/deleteListener", this.dataset.Id)
+        Send("DELETE", "/api/deleteListener", this.dataset.Listener_Id)
+        openListenersListTable(this)
         update()
     }
 }
@@ -571,7 +573,6 @@ function deleteListener(){
 function editProgramForm(){
     document.body.style.overflow = "hidden"
     let program = Send("POST", "/api/getProgram/" + this.dataset.Id, null)
-    console.log(program);
     let res = Send("POST", "/api/getParameters", null)
     let levelList = []
     let typeList = []
@@ -686,8 +687,6 @@ function editProgramForm(){
     let file = document.querySelector('[name="File"]')
     let box = document.getElementById("uploadFile")
     box.onchange = function(){
-        console.log(this);
-        console.log(file);
         if (this.checked){
             file.disabled = false
         }else{
@@ -752,13 +751,19 @@ function editProgram(){
                 Plan: fileName
             })
             deleteForm()
+            update()
+            for (let i of programsList.children){
+                if (i.dataset.Id == program.Id){
+                    openListenersListTable(i)
+                }
+            }
         }else{alert(text)}
     }
 }
 
 function editListenerForm(){
     document.body.style.overflow = "hidden"
-    let listener = Send("POST", "/api/getListener", {Id: this.dataset.Id})
+    let listener = Send("POST", "/api/getListener", {Id: this.dataset.Listener_Id})
     let educations = Send("POST", "/api/getEducations", null)
     let educationList = []
     for (let edu of educations){    
@@ -784,7 +789,7 @@ function editListenerForm(){
                         "type": "button", 
                         "value": "Изменить", 
                         "id": "edit_but",
-                        "dataset": {"Id": this.dataset.Id},
+                        "dataset": {"Id": listener.Program_id, "Listener_Id": listener.Id},
                         "events": {onclick: editListener}
                     })
                 ]
@@ -806,7 +811,7 @@ function editListener(){
         let birth_date = document.querySelector("#editListener #birth_date").value
         deleteForm()
         Send("PUT", "/api/editListener", {
-            Id: this.dataset.Id, 
+            Id: this.dataset.Listener_Id, 
             Surname: surname, 
             Name: name, 
             Patronymic: patronymic, 
@@ -817,6 +822,7 @@ function editListener(){
             Birth_date: birth_date
         })
         update()
+        openListenersListTable(this)
     }
 }
 
@@ -1144,4 +1150,60 @@ function updateAlerts(){
     }else{
         reacts.classList.remove("hide")
     }
+}
+
+
+function checkFields(){
+    let regexTelephone = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
+    let regexEmail = /^[\w-\.]+@[\w-]+\.[a-z]{2,4}$/i
+    let surname = document.getElementById("surname").value
+    let name = document.getElementById("name").value
+    let patronymic = document.getElementById("patronymic").value
+    let birth_date = document.getElementById("birth_date").value
+    let snils = document.getElementById("snils").value
+    let email = document.getElementById("email").value
+    let telephone = document.getElementById("telephone").value
+    let education = document.getElementById("education").value
+
+    let failedAlert = document.getElementById("failedAlert")
+
+    let text = ""
+
+    if (typeof snils === 'number') {
+		snils = snils.toString();
+	} else if (typeof snils !== 'string') {
+		snils = '';
+	}
+  
+    if (surname == "" || name  == "" || patronymic == "" || birth_date == "" ||
+        snils == "" || email == "" || telephone == "" || education == ""){
+        text += "Есть пустые поля!"
+    }else if (/[^0-9]/.test(snils)) {
+        text += 'СНИЛС может состоять только из цифр';
+	}else if (snils.length !== 11) {
+        text += 'СНИЛС может состоять только из 11 цифр';
+	}else if(!regexEmail.test(email)){
+        text += 'Не верно указана почта!';
+    }else if(!regexTelephone.test(telephone)){
+        text += 'Не верно указан номер телефона!';
+    }
+
+    failedAlert.innerHTML = text + "<br>"
+    if (text == ""){
+        Send("POST", "/api/AddListener", {
+            Surname: surname, 
+            Name: name, 
+            Patronymic: patronymic, 
+            Telephone: telephone,
+            Email: email,
+            Snils: snils, 
+            Education: education,
+            Birth_date: birth_date,
+            Status: this.dataset.Status,
+            Program: this.dataset.Id
+        })
+        deleteRegistrationForm()
+    }
+    update()
+    openListenersListTable(this)
 }
