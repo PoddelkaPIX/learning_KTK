@@ -5,7 +5,7 @@
 -- Dumped from database version 13.7
 -- Dumped by pg_dump version 13.7
 
--- Started on 2022-05-20 14:31:02
+-- Started on 2022-05-20 15:00:06
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -699,10 +699,6 @@ INSERT INTO public."Issued_document_list" ("Id", "Document") VALUES (6, 'Дип�
 -- Data for Name: Listener; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (17, 'Породинdddd', 'Максим', 'Потапов', '+78909353636', 'Среднее общее образование', 2, 'potap@mail.ru', '2022-05-17', '2022-05-13', 4, '63574384988');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (15, 'Алабушеа', 'Кирилл', 'Александрович', '+78909353636', 'Основное общее образование', 2, 'alabushew@mail.ru', '2022-05-17', '2022-05-21', 3, '63574384988');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (16, 'Морошка', 'Никита', 'Никитич', '+78909353636', 'Среднее общее образование', 2, 'moroz@mail.ru', '2022-05-17', '2022-05-14', 3, '63574384988');
-INSERT INTO public."Listener" ("Id", "Surname", "Name", "Patronymic", "Telephone", "Education", "Program_id", "Email", "Registration_date", "Birth_date", "Status_id", "Snils") VALUES (13, 'Морошка', 'Никита', 'Никитич', '+78909353636', 'Среднее общее образование', 1, 'moroz@mail.ru', '2022-05-17', '2022-05-14', 3, '63574384988');
 
 
 --
@@ -747,9 +743,6 @@ INSERT INTO public."Program_level_list" ("Id", "Level") VALUES (2, 'Дополн
 -- Data for Name: Program_passport; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id", "Plan") VALUES (1, 'Закройщик', 1, 1, 1, 1, '144 часа', '1 месяц', '6500 руб.', 1, '11 человек', '2022-05-17', '2022-05-17', 1, 11, 3, 'Паспорт ГБПОУ КТК 2021.pdf');
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id", "Plan") VALUES (3, 'Закройщикddd', 1, 1, 1, 1, '144 часа', '1 месяц', '6500 руб.', 1, '11 человек', '', '', 1, 11, 2, 'Паспорт ГБПОУ КТК 2021.pdf');
-INSERT INTO public."Program_passport" ("Id", "Title", "Level_id", "Type_id", "Direction_study_id", "Training_form_id", "Size", "Length", "Price", "Place_id", "Minimum_group_size", "Start_date", "Time_period", "Issued_document_id", "Requirement_id", "Status_id", "Plan") VALUES (2, 'Закройщикddd', 1, 1, 1, 1, '144 часа', '1 месяц', '6500 руб.', 1, '11 человек', '2022-05-17', '2022-05-17', 1, 11, 3, 'Паспорт ГБПОУ КТК 2021.pdf');
 
 
 --
@@ -844,7 +837,7 @@ SELECT pg_catalog.setval('public."Listener_status_list_Id_seq"', 5, true);
 -- Name: Listeners_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Listeners_Id_seq"', 17, true);
+SELECT pg_catalog.setval('public."Listeners_Id_seq"', 1, false);
 
 
 --
@@ -871,7 +864,7 @@ SELECT pg_catalog.setval('public."Program_level_list_Id_seq"', 9, true);
 -- Name: Program_passport_Id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public."Program_passport_Id_seq"', 3, true);
+SELECT pg_catalog.setval('public."Program_passport_Id_seq"', 1, false);
 
 
 --
@@ -1108,7 +1101,7 @@ ALTER TABLE ONLY public."Program_passport"
     ADD CONSTRAINT "Program_passport_fk7" FOREIGN KEY ("Status_id") REFERENCES public."Program_status_list"("Id");
 
 
--- Completed on 2022-05-20 14:31:03
+-- Completed on 2022-05-20 15:00:06
 
 --
 -- PostgreSQL database dump complete
