@@ -351,7 +351,7 @@ function CardMenu(event){
                 Block("input", {
                     "dataset": {"Id": this.dataset.Id, "View": this.dataset.View},
                     "type": "button",
-                    "value": "Посмотреть пасспорт",
+                    "value": "Посмотреть паспорт",
                     "events": {onclick: openProgramPassport}
                 })
             )
