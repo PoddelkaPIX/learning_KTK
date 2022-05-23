@@ -231,18 +231,29 @@ function createListenersTable(dataset){
                 "id": "ListenerInformationTable",
                 "children": listenersListTitles
             }), 
-            Block("div", {
-                "id": "listenerButtonsGroup",
-            }), 
             Block("input", {"className": "addButton", "type": "button", "value": "Добавить слушателя", 
                         "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
                         "events": {onclick: createRegistrationForm }
             }),
-            Block("input", {"id": "printListersList", "className": "noHover", "type": "button", "value": "Сформировать список в excel", 
-                        "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
-                        "events": {onclick: printListersList },
-                        "disabled": true
-            }),
+            Block("span", { "id": "listenerButtonsGroup",
+                "children": [
+                    Block("input", {"disabled": true, "type": "button", "value": "Сформировать список в excel", 
+                            "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
+                            "events": {onclick: printListersList },
+                    }),
+                    // Block("select", {"disabled": true, "children": [
+                    //     Block("option", {"value": "0", "textContent": "Распечатать заявление"}),
+                    //     Block("option", {"value": "0", "textContent": "Заявление ДПО ПК"}),
+                    //     Block("option", {"value": "0", "textContent": "Заявление ДПО ПП"}),
+                    //     Block("option", {"value": "0", "textContent": "Заявление ПО П"}),
+                    //     Block("option", {"value": "0", "textContent": "Заявление ПО ПК"}),
+                    //     Block("option", {"value": "0", "textContent": "Заявление ПО ПП"})
+                    // ]}),
+                    // Block("input", {"disabled": true, "type": "button", "value": "Согласие на обработку ПД", 
+                    //         "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
+                    //         "events": {onclick: printListersList },
+                    // }),
+            ]})
         ]
     })
     
@@ -415,7 +426,6 @@ function CardMenu(event){
         "id": "statusMenu",
         "style": "left:" + String(mouse_x) +"px; top:" + String(mouse_y) +"px;",
         "children": [
-            Block("div", {"textContent": "Id: " + this.dataset.Id}),
             ...buttonsGroup
         ]
     }))
@@ -513,7 +523,6 @@ function listenerStatusMenu(event){
         "id": "statusMenu",
         "style": "left:" + String(mouse_x) +"px; top:" + String(mouse_y) +"px;",
         "children": [
-            Block("div", {"textContent": "Id: " + this.dataset.Listener_Id}),
             ...buttonsGroup
         ]
     }))
@@ -936,17 +945,18 @@ function addProgram(){
                     Block("tr", {
                         "children": [
                             Block("td", {"textContent": "Объем программы"}),
-                            Block("td", {"children": [Block("input", { "name": "Size", "required": true, "placeholder": "xxx часов"})]})
+                            Block("td", {"children": [Block("input", { "name": "Size", "type": "number", "required": true})]}),
+                                  
                     ]}),
                     Block("tr", {
                         "children": [
                             Block("td", {"textContent": "Длительность программы"}),
-                            Block("td", {"children": [Block("input", {"name": "Length", "required": true, "placeholder": "x месяцев"})]})
+                            Block("td", {"children": [Block("input", {"name": "Length", "type": "number", "required": true})]}),
                     ]}),
                     Block("tr", {
                         "children": [
                             Block("td", {"textContent": "Стоимость обучения"}),
-                            Block("td", {"children": [Block("input", {"name": "Price", "required": true, "placeholder": "xxx рублей"})]})
+                            Block("td", {"children": [Block("input", {"name": "Price", "type": "number", "required": true})]}),
                     ]}),
                     Block("tr", {
                         "children": [
@@ -956,7 +966,7 @@ function addProgram(){
                     Block("tr", {
                         "children": [
                             Block("td", {"textContent": "Минимальный размер группы"}),
-                            Block("td", {"children": [Block("input", {"name": "Minimum_group_size", "required": true, "placeholder": "xx человек"})]})
+                            Block("td", {"children": [Block("input", {"name": "Minimum_group_size", "type": "number", "required": true})]}),   
                     ]}),
                     Block("tr", {
                         "children": [
@@ -977,7 +987,7 @@ function addProgram(){
                         "children": [
                             Block("td", {"textContent": "Подробнее: "}),
                             Block("td", {"children": [Block("input", {"name": "File", "type": "file", "events": {accept: "application/pdf"}})]})
-                    ]}),
+                    ]})
                 ]}),
                 Block("input", {
                     "className": "subscribe_but",
@@ -1027,11 +1037,11 @@ function checkAddProgramForm(){
             Type: type, 
             Direction: direction,
             Forma: forma,
-            Size: size, 
-            Length: length,
-            Price: price,
+            Size: size + " " + getNoun(size, "час", "часа", "часов"), 
+            Length: length + " " + getNoun(length, "месяц", "месяца", "месяцев"),
+            Price: price + " " + getNoun(length, "рубль", "рубля", "рублей"),
             Place: place,
-            Min_grup_size: min_grup_size,
+            Min_grup_size: min_grup_size + " " + getNoun(min_grup_size, "человек", "человека", "человек"),
             Start_date: start_date,
             Docum: docum,
             Requirement: requirement,
@@ -1106,13 +1116,15 @@ function checkListenerCheckBox(){
             break
         }
     }
-    let printListersList = document.getElementById("printListersList")
+    let listenerButtonsGroup = document.getElementById("listenerButtonsGroup")
     if (checked){
-        printListersList.classList.remove("noHover")
-        printListersList.disabled = false
+       for (let item of listenerButtonsGroup.children){
+           item.disabled = false
+       }
     }else{  
-        printListersList.classList.add("noHover")
-        printListersList.disabled = true
+        for (let item of listenerButtonsGroup.children){
+            item.disabled = true
+        }
     }
 }
 
@@ -1207,3 +1219,19 @@ function checkFields(){
     update()
     openListenersListTable(this)
 }
+
+function getNoun(number, one, two, five) {
+    let n = Math.abs(number);
+    n %= 100;
+    if (n >= 5 && n <= 20) {
+      return five;
+    }
+    n %= 10;
+    if (n === 1) {
+      return one;
+    }
+    if (n >= 2 && n <= 4) {
+      return two;
+    }
+    return five;
+  }

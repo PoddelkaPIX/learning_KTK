@@ -354,3 +354,10 @@ input[type="radio"]{
                 0 -1px 1px #000;
 
 }
+
+.inputWithDeclension{
+    display: flex;
+    select{
+        width: auto!important; 
+    }
+}
