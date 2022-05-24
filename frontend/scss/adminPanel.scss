@@ -1,4 +1,5 @@
 main{
+    position: absolute;
     display: grid;
     grid-template-columns: 650px auto;
     grid-template-areas:    "filters . "

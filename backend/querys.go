@@ -664,7 +664,7 @@ func createExcelListersList(c *gin.Context){
 	e := c.BindJSON(&i)
 	if e != nil {
 		utils.Logger.Println(e)
-		c.JSON(400, nil)
+		c.JSON(400, false)
 		return
 	}
 	idListeners := strings.Split(i, ";")
@@ -695,15 +695,15 @@ func createExcelListersList(c *gin.Context){
 	}
 	f.SaveAs("text.xlsx")
 	
-	c.JSON(200, nil)
+	c.JSON(200, true)
 }
 
 
-func excel(c *gin.Context){ // POST
+func excel(c *gin.Context){
 	f , err:= excelize.OpenFile("text.xlsx")
 	if err != nil{
 		utils.Logger.Println(err)
-		c.JSON(200, nil)
+		c.JSON(400, nil)
 		return
 	}
 

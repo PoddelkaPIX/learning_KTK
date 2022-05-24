@@ -1,0 +1,9 @@
+2022/05/23 19:56:57 router.go:177: json: cannot unmarshal string into Go value of type main.input
+2022/05/23 20:43:35 router.go:196: unable to open zip reader: zip: not a valid zip file
+2022/05/23 21:12:55 router.go:233: EOF
+2022/05/23 21:15:46 router.go:209: unable to open .docx docxFile: open ../resources/templatesDocx/Заявление ДПО ПК templ.docx: The system cannot find the file specified.
+2022/05/23 21:17:21 router.go:233: EOF
+2022/05/23 21:18:59 router.go:233: EOF
+2022/05/23 21:20:59 router.go:234: Не получилось принять данные:  EOF
+2022/05/23 21:42:48 router.go:253: remove ../resources/templatesDocx/results/Завьялова Анастасия.docx: The process cannot access the file because it is being used by another process.
+2022/05/23 21:42:48 router.go:253: remove ../resources/templatesDocx/results/Лукошенко Анастасия.docx: The process cannot access the file because it is being used by another process.

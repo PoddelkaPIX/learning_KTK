@@ -5,6 +5,7 @@ function Send(method, uri, data) {
 
     xhr.onload = function (event) {
         res = JSON.parse(this.response)
+        console.log("res: ", res);
     }
 
     if (data) {
@@ -86,14 +87,12 @@ function Block(block, props) {
 }
 
 function Upload(files, callback) {
-    console.log("upload");
     let xhr = new XMLHttpRequest();
     xhr.open("POST", "/api/upload");
     let data = new FormData();
     
     for (let file of files) {
         data.append("MyFiles", file, file.name);
-        console.log(file, file.name);
     }
     xhr.onload = function (event) {
         callback(JSON.parse(this.response));

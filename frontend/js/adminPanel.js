@@ -241,13 +241,15 @@ function createListenersTable(dataset){
                             "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
                             "events": {onclick: printListersList },
                     }),
-                    // Block("select", {"disabled": true, "children": [
+                    // Block("select", {"disabled": true, 
+                    // "events": {onchange: createStatement},
+                    // "children": [
                     //     Block("option", {"value": "0", "textContent": "Распечатать заявление"}),
-                    //     Block("option", {"value": "0", "textContent": "Заявление ДПО ПК"}),
-                    //     Block("option", {"value": "0", "textContent": "Заявление ДПО ПП"}),
-                    //     Block("option", {"value": "0", "textContent": "Заявление ПО П"}),
-                    //     Block("option", {"value": "0", "textContent": "Заявление ПО ПК"}),
-                    //     Block("option", {"value": "0", "textContent": "Заявление ПО ПП"})
+                    //     Block("option", {"value": "1", "textContent": "Заявление ДПО ПК"}),
+                    //     Block("option", {"value": "2", "textContent": "Заявление ДПО ПП"}),
+                    //     Block("option", {"value": "3", "textContent": "Заявление ПО П"}),
+                    //     Block("option", {"value": "4", "textContent": "Заявление ПО ПК"}),
+                    //     Block("option", {"value": "5", "textContent": "Заявление ПО ПП"})
                     // ]}),
                     // Block("input", {"disabled": true, "type": "button", "value": "Согласие на обработку ПД", 
                     //         "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
@@ -1138,8 +1140,11 @@ function printListersList(){
         }
     }
     idListeners = idListeners.join(";")
-    Send("POST", "/api/excelList", idListeners)
-    setTimeout(() => {window.location.href = "/excel"}, 1000);
+    let otv = Send("POST", "/api/excelList", idListeners)
+    if (otv){
+        window.location.href = "/excel"
+    }
+    // setTimeout(() => {window.location.href = "/excel"}, 1000);
 }
 
 function updateAlerts(){
@@ -1235,3 +1240,19 @@ function getNoun(number, one, two, five) {
     }
     return five;
   }
+
+function createStatement(){
+    idListeners = []
+    checkBoxListeners = document.getElementsByClassName("checkBoxListener")
+    for (let box of checkBoxListeners){
+        if (box.checked){
+            idListeners.push(box.value)
+        }
+    }
+    idListeners = idListeners.join(";")
+    let otv = Send("POST", "/api/createStatement/" + this.value.toString(), idListeners)
+    if (otv){
+        window.location.href = "/downloadStatement"
+        // Send("GET", "/downloadStatement", null)
+    }
+}

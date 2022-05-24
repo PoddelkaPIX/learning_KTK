@@ -18,7 +18,7 @@ let params = {
     "О программе": ""
 }
 
-document.body.append(
+document.getElementById("page").append(
     Block("div", {
         "id": "passport",
         "children": [

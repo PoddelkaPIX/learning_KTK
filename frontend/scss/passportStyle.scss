@@ -3,7 +3,11 @@ body {
     margin: 0;
     padding-top: 80px;
 }
-
+@media screen and (max-width: 980px) {
+    #page{
+        position: absolute;
+    }
+}
 #passport {
     grid-area: c;
     overflow: auto;

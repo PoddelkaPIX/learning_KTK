@@ -1,10 +1,16 @@
 package main
 
 import (
+	"io/ioutil"
 	"learning/backend/settings"
 	"net/http"
+	"os"
+	"strings"
+
+	"learning/backend/utils"
 
 	"github.com/gin-gonic/gin"
+	docx "github.com/lukasjarosch/go-docx"
 	"github.com/thinkerou/favicon"
 )
 
@@ -20,8 +26,10 @@ func StartRouter(conf settings.SettingServer) {
 	router.GET("/adminLogin", adminLoginHandler)
 	router.GET("/aboutProgram/:Id", aboutProgramHandler)
 	router.GET("/excel", excel)
+	router.GET("/downloadStatement", downloadStatement)
 
 	router.POST("/api/excelList", createExcelListersList)
+	router.POST("/api/createStatement/:Id", createStatement)
 	router.POST("/api/getPrograms", getPrograms)
 	router.POST("/api/getProgram/:Id", getProgram)
 	router.POST("/api/getEducations", getEducations)
@@ -152,4 +160,98 @@ func addProgram(c *gin.Context) {
 	queryAddProgram(program)
 	c.JSON(200, nil)
 	c.Redirect(http.StatusFound, "/adminPanel2")
+}
+
+func createStatement(c *gin.Context) {
+	idDoc := c.Params.ByName("Id")
+	fileName := "../resources/templatesDocx/"
+	switch idDoc {
+	case "0":
+		c.JSON(404, false)
+		return
+	case "1":
+		fileName += "Заявление ДПО ПК templ.docx"
+	case "2":
+		fileName += "Заявление ДПО ПП templ.docx"
+	case "3":
+		fileName += "Заявление ПО П templ.docx"
+	case "4":
+		fileName += "Заявление ПО ПК templ.docx"
+	case "5":
+		fileName += "Заявление ПО ПП templ.docx"
+	}
+
+	var i string
+	e := c.BindJSON(&i)
+	if e != nil {
+		utils.Logger.Println(e)
+		c.JSON(400, nil)
+		return
+	}
+	idListeners := strings.Split(i, ";")
+
+	for _, id := range idListeners {
+		listener := queryListener(id)
+		listenerInformation := docx.PlaceholderMap{
+			"surname":    listener.Surname,
+			"name":       listener.Name,
+			"patronymic": listener.Patronymic,
+			"birth_date": listener.Birth_date,
+			"telephone":  listener.Telephone,
+			"email":      listener.Email,
+			"education":  listener.Education,
+			"snils":      listener.Snils,
+		}
+
+		doc, err := docx.Open(fileName)
+		if err != nil {
+			utils.Logger.Println(err)
+			c.JSON(400, false)
+		}
+
+		err = doc.ReplaceAll(listenerInformation)
+		if err != nil {
+			utils.Logger.Println(err)
+			c.JSON(400, false)
+		}
+
+		err = doc.WriteToFile("../resources/templatesDocx/results/" + listener.Surname + " " + listener.Name + ".docx")
+		if err != nil {
+			utils.Logger.Println(err)
+			c.JSON(400, false)
+		}
+	}
+
+	c.JSON(200, true)
+}
+
+func downloadStatement(c *gin.Context) {
+	files, err := ioutil.ReadDir("../resources/templatesDocx/results/")
+	if err != nil {
+		utils.Logger.Println(err)
+
+	}
+
+	for _, file := range files {
+		doc, err := docx.Open("../resources/templatesDocx/results/" + file.Name())
+		if err != nil {
+			utils.Logger.Println("Не получилось открыть файл"+file.Name(), err)
+			c.JSON(400, nil)
+		}
+
+		c.Header("Content-Type", "application/octet-stream")
+		c.Header("Content-Disposition", "attachment; filename="+file.Name())
+		c.Header("Content-Transfer-Encoding", "binary")
+
+		err = doc.Write(c.Writer)
+		if err != nil {
+			utils.Logger.Println(err)
+			c.JSON(400, nil)
+		}
+		err = os.Remove("../resources/templatesDocx/results/" + file.Name())
+		if err != nil {
+			utils.Logger.Println(err)
+		}
+	}
+	c.JSON(200, nil)
 }
