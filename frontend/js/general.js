@@ -5,7 +5,6 @@ function Send(method, uri, data) {
 
     xhr.onload = function (event) {
         res = JSON.parse(this.response)
-        console.log("res: ", res);
     }
 
     if (data) {

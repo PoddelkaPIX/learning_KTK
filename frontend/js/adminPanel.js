@@ -241,20 +241,6 @@ function createListenersTable(dataset){
                             "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
                             "events": {onclick: printListersList },
                     }),
-                    // Block("select", {"disabled": true, 
-                    // "events": {onchange: createStatement},
-                    // "children": [
-                    //     Block("option", {"value": "0", "textContent": "Распечатать заявление"}),
-                    //     Block("option", {"value": "1", "textContent": "Заявление ДПО ПК"}),
-                    //     Block("option", {"value": "2", "textContent": "Заявление ДПО ПП"}),
-                    //     Block("option", {"value": "3", "textContent": "Заявление ПО П"}),
-                    //     Block("option", {"value": "4", "textContent": "Заявление ПО ПК"}),
-                    //     Block("option", {"value": "5", "textContent": "Заявление ПО ПП"})
-                    // ]}),
-                    // Block("input", {"disabled": true, "type": "button", "value": "Согласие на обработку ПД", 
-                    //         "dataset": {"Id": dataset.Id, "Title": dataset.Title, "Status": addListenerStatus}, 
-                    //         "events": {onclick: printListersList },
-                    // }),
             ]})
         ]
     })
@@ -521,10 +507,32 @@ function listenerStatusMenu(event){
             )
             break;
     }
+    buttonsGroup.push(
+        Block("input", {"value": "Заявление ДПО ПК", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "1"}, 
+                "events": {onclick: createStatement},}),
+        Block("input", {"value": "Заявление ДПО ПП", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "2"}, 
+                "events": {onclick: createStatement},}),
+        Block("input", {"value": "Заявление ПО П", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "3"}, 
+                "events": {onclick: createStatement},}),
+        Block("input", {"value": "Заявление ПО ПК", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "4"}, 
+                "events": {onclick: createStatement},}),
+        Block("input", {"value": "Заявление ПО ПП", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "5"}, 
+                "events": {onclick: createStatement},}),
+        Block("input", {"value": "Согласие на обработку ПД", "type": "button",
+                "dataset": {"ListenerId": this.dataset.Listener_Id, "ProgramId": this.dataset.Id, "StatementId": "6"}, 
+                "events": {onclick: createStatement},
+        })
+    )
     contextMenu(Block("div", {
         "id": "statusMenu",
         "style": "left:" + String(mouse_x) +"px; top:" + String(mouse_y) +"px;",
         "children": [
+            Block("div", {"textContent": this.dataset.Surname}),
             ...buttonsGroup
         ]
     }))
@@ -1242,17 +1250,12 @@ function getNoun(number, one, two, five) {
   }
 
 function createStatement(){
-    idListeners = []
-    checkBoxListeners = document.getElementsByClassName("checkBoxListener")
-    for (let box of checkBoxListeners){
-        if (box.checked){
-            idListeners.push(box.value)
-        }
-    }
-    idListeners = idListeners.join(";")
-    let otv = Send("POST", "/api/createStatement/" + this.value.toString(), idListeners)
+    let otv = Send("POST", "/api/createStatement", {
+        ProgramId: this.dataset.ProgramId, 
+        ListenerId: this.dataset.ListenerId,
+        StatementId: this.dataset.StatementId})
+        console.log(otv);
     if (otv){
-        window.location.href = "/downloadStatement"
-        // Send("GET", "/downloadStatement", null)
+        window.location.href = "/downloadStatement/" + otv
     }
 }

@@ -1,13 +1,12 @@
 package main
 
 import (
-	"io/ioutil"
 	"learning/backend/settings"
+	"learning/backend/utils"
 	"net/http"
 	"os"
 	"strings"
-
-	"learning/backend/utils"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	docx "github.com/lukasjarosch/go-docx"
@@ -26,10 +25,10 @@ func StartRouter(conf settings.SettingServer) {
 	router.GET("/adminLogin", adminLoginHandler)
 	router.GET("/aboutProgram/:Id", aboutProgramHandler)
 	router.GET("/excel", excel)
-	router.GET("/downloadStatement", downloadStatement)
+	router.GET("/downloadStatement/:FileName", downloadStatement)
 
 	router.POST("/api/excelList", createExcelListersList)
-	router.POST("/api/createStatement/:Id", createStatement)
+	router.POST("/api/createStatement", createStatement)
 	router.POST("/api/getPrograms", getPrograms)
 	router.POST("/api/getProgram/:Id", getProgram)
 	router.POST("/api/getEducations", getEducations)
@@ -62,7 +61,6 @@ func homePageHandler(c *gin.Context) {
 	queryPrograms()
 	c.HTML(200, "homePage.html", queryCheckAdmin(c))
 }
-
 func adminPanelHandler(c *gin.Context) {
 	admin := queryCheckAdmin(c)
 	if admin {
@@ -163,95 +161,140 @@ func addProgram(c *gin.Context) {
 }
 
 func createStatement(c *gin.Context) {
-	idDoc := c.Params.ByName("Id")
-	fileName := "../resources/templatesDocx/"
-	switch idDoc {
-	case "0":
-		c.JSON(404, false)
-		return
-	case "1":
-		fileName += "Заявление ДПО ПК templ.docx"
-	case "2":
-		fileName += "Заявление ДПО ПП templ.docx"
-	case "3":
-		fileName += "Заявление ПО П templ.docx"
-	case "4":
-		fileName += "Заявление ПО ПК templ.docx"
-	case "5":
-		fileName += "Заявление ПО ПП templ.docx"
+	type input struct {
+		ProgramId   string
+		ListenerId  string
+		StatementId string
 	}
-
-	var i string
+	filePath := "../resources/templatesDocx/temp/"
+	fileName := ""
+	var i input
 	e := c.BindJSON(&i)
 	if e != nil {
 		utils.Logger.Println(e)
 		c.JSON(400, nil)
 		return
 	}
-	idListeners := strings.Split(i, ";")
 
-	for _, id := range idListeners {
-		listener := queryListener(id)
-		listenerInformation := docx.PlaceholderMap{
-			"surname":    listener.Surname,
-			"name":       listener.Name,
-			"patronymic": listener.Patronymic,
-			"birth_date": listener.Birth_date,
-			"telephone":  listener.Telephone,
-			"email":      listener.Email,
-			"education":  listener.Education,
-			"snils":      listener.Snils,
-		}
+	switch i.StatementId {
+	case "1":
+		fileName = "Заявление ДПО ПК templ.docx"
+	case "2":
+		fileName = "Заявление ДПО ПП templ.docx"
+	case "3":
+		fileName = "Заявление ПО П templ.docx"
+	case "4":
+		fileName = "Заявление ПО ПК templ.docx"
+	case "5":
+		fileName = "Заявление ПО ПП templ.docx"
+	case "6":
+		fileName = "СОГЛАСИЕ обработка ПД templ.docx"
+	}
 
-		doc, err := docx.Open(fileName)
-		if err != nil {
-			utils.Logger.Println(err)
-			c.JSON(400, false)
-		}
+	filePath += fileName
 
-		err = doc.ReplaceAll(listenerInformation)
-		if err != nil {
-			utils.Logger.Println(err)
-			c.JSON(400, false)
-		}
-
-		err = doc.WriteToFile("../resources/templatesDocx/results/" + listener.Surname + " " + listener.Name + ".docx")
-		if err != nil {
-			utils.Logger.Println(err)
-			c.JSON(400, false)
+	listener := queryListener(i.ListenerId)
+	programTitle := queryProgram(i.ProgramId).Title
+	var programTitleRow1 string
+	var programTitleRow2 string
+	var manth string
+	words := strings.Split(programTitle, " ")
+	time := strings.Split(time.Now().Format("2.1.2006"), ".")
+	manth = determineMonth(time[1])
+	for _, word := range words {
+		if len(programTitleRow1) < 115 {
+			programTitleRow1 += word + " "
+		} else {
+			programTitleRow2 += word + " "
 		}
 	}
 
-	c.JSON(200, true)
+	listenerInformation := docx.PlaceholderMap{
+		"surname":          listener.Surname,
+		"name":             listener.Name,
+		"patronymic":       listener.Patronymic,
+		"birth_date":       strings.Join(reverseInts(strings.Split(listener.Birth_date, "-")), "."),
+		"telephone":        listener.Telephone,
+		"email":            listener.Email,
+		"education":        listener.Education,
+		"snils":            listener.Snils,
+		"programTitleRow1": programTitleRow1,
+		"programTitleRow2": programTitleRow2,
+		"day":              time[0],
+		"manth":            manth,
+		"year":             time[2],
+	}
+
+	doc, err := docx.Open(filePath)
+	if err != nil {
+		utils.Logger.Println(err)
+		c.JSON(400, false)
+	}
+	defer doc.Close()
+
+	err = doc.ReplaceAll(listenerInformation)
+	if err != nil {
+		utils.Logger.Println(err)
+		c.JSON(400, false)
+	}
+
+	err = doc.WriteToFile("../resources/templatesDocx/results/" + listener.Surname + "_" + listener.Name + " " + fileName)
+	if err != nil {
+		utils.Logger.Println(err)
+		c.JSON(400, false)
+	}
+	c.JSON(200, listener.Surname+"_"+listener.Name + " " + fileName)
 }
 
 func downloadStatement(c *gin.Context) {
-	files, err := ioutil.ReadDir("../resources/templatesDocx/results/")
+	fileName := c.Params.ByName("FileName")
+	filePath := "../resources/templatesDocx/results/"
+	targetPath := filePath + fileName
+
+	c.Header("Content-Description", "File Transfer")
+	c.Header("Content-Transfer-Encoding", "binary")
+	c.Header("Content-Disposition", "attachment; filename="+fileName)
+	c.Header("Content-Type", "application/octet-stream")
+	c.File(targetPath)
+	err := os.Remove(targetPath)
 	if err != nil {
-		utils.Logger.Println(err)
-
+		utils.Logger.Println("Не вышло удалить файл: ", err)
 	}
+}
 
-	for _, file := range files {
-		doc, err := docx.Open("../resources/templatesDocx/results/" + file.Name())
-		if err != nil {
-			utils.Logger.Println("Не получилось открыть файл"+file.Name(), err)
-			c.JSON(400, nil)
-		}
-
-		c.Header("Content-Type", "application/octet-stream")
-		c.Header("Content-Disposition", "attachment; filename="+file.Name())
-		c.Header("Content-Transfer-Encoding", "binary")
-
-		err = doc.Write(c.Writer)
-		if err != nil {
-			utils.Logger.Println(err)
-			c.JSON(400, nil)
-		}
-		err = os.Remove("../resources/templatesDocx/results/" + file.Name())
-		if err != nil {
-			utils.Logger.Println(err)
-		}
+func determineMonth(monthNumber string) string {
+	switch monthNumber {
+	case "1":
+		return "Января"
+	case "2":
+		return "Февраля"
+	case "3":
+		return "Марта"
+	case "4":
+		return "Апреля"
+	case "5":
+		return "Мая"
+	case "6":
+		return "Июня"
+	case "7":
+		return "Июля"
+	case "8":
+		return "Августа"
+	case "9":
+		return "Сентября"
+	case "10":
+		return "Октября"
+	case "11":
+		return "Ноября"
+	case "12":
+		return "Декабря"
 	}
-	c.JSON(200, nil)
+	return monthNumber
+}
+
+func reverseInts(input []string) []string {
+	if len(input) == 0 {
+		return input
+	}
+	return append(reverseInts(input[1:]), input[0])
 }

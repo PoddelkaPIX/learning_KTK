@@ -1,7 +1,0 @@
-2022/05/16 19:39:37 querys.go:58: pq: отношение "Program_passport" не существует
-2022/05/16 19:39:37 querys.go:217: http: named cookie not present
-2022/05/16 19:39:38 querys.go:485: pq: отношение "Education_list" не существует
-2022/05/16 19:39:38 querys.go:58: pq: отношение "Program_passport" не существует
-2022/05/16 19:39:38 querys.go:514: pq: отношение "Type_program_list" не существует
-2022/05/16 19:41:21 querys.go:217: http: named cookie not present
-2022/05/16 19:41:29 querys.go:217: http: named cookie not present
