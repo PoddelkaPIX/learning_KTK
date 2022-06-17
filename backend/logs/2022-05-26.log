@@ -1,9 +1,0 @@
-2022/05/26 17:24:47 router.go:227: unable to open .docx docxFile: open ../resources/templatesDocx/temp/Заявление ПО П templ.docx: The system cannot find the file specified.
-2022/05/26 17:28:08 router.go:227: unable to open zip reader: read ../resources/templatesDocx/temp/: The handle is invalid.
-2022/05/26 17:58:00 router.go:225: unable to open zip reader: read ../resources/templatesDocx/temp/: The handle is invalid.
-2022/05/26 17:59:33 router.go:227: unable to open .docx docxFile: open ../resources/templatesDocx/temp/СОГЛАСИЕ обработка ПД.docx: The system cannot find the file specified.
-2022/05/26 17:59:43 router.go:227: unable to open .docx docxFile: open ../resources/templatesDocx/temp/СОГЛАСИЕ обработка ПД.docx: The system cannot find the file specified.
-2022/05/26 18:12:09 router.go:261: Не вышло удалить файл:  remove ../resources/templatesDocx/results/Породин_МаксимЗаявление ДПО ПК templ.docx: The system cannot find the file specified.
-2022/05/26 18:12:10 router.go:261: Не вышло удалить файл:  remove ../resources/templatesDocx/results/Породин_МаксимЗаявление ДПО ПК templ.docx: The system cannot find the file specified.
-2022/05/26 18:12:16 router.go:261: Не вышло удалить файл:  remove ../resources/templatesDocx/results/Породин_МаксимЗаявление ДПО ПК templ.docx: The system cannot find the file specified.
-2022/05/26 18:12:46 router.go:261: Не вышло удалить файл:  remove ../resources/templatesDocx/results/Породин_МаксимЗаявление ДПО ПК templ.docx: The system cannot find the file specified.

@@ -846,50 +846,9 @@ function editListener(){
 }
 
 function openProgramPassport(){
-    informations.innerHTML = ""
-    
     let program = Send("POST", "/api/getProgram/" + this.dataset.Id , null)
-    let params = {
-        "Уровень программы": program.Level, 
-        "Вид программы": program.Type,
-        "Направление обучения": program.Direction, 
-        "Форма обучения": program.Training_form,
-        "Объем программы": program.Size, 
-        "Длительность программы": program.Length,
-        "Стоимость обучения": program.Price, 
-        "Место реализации программы": program.Place,
-        "Минимальный размер группы": program.Minimum_group_size, 
-        "Начало занятий": "По мере набора группы",
-        "Выдаваемый документ": program.Issued_document,
-        "Требования к слушателям": program.Requirement,
-    }
-    let rows = []
-
-    for ( let i in params){
-        rows.push(Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": i}),
-                        Block("td", {"textContent": params[i]})
-                    ]}
-                ))
-    }
-
-    rows.push(Block("tr", {"children":[
-        Block("td", {"textContent": "О программе"}),
-        Block("td", {"children": [
-            Block("a", {"textContent": "Учебный план", "href": "/aboutProgram/"+program.Id})
-        ]})
-    ]}))
-    informations.append(Block("div", {
-        "className": "passport",
-        "children":[
-            Block("h2", {"textContent": program.Title}),
-            Block("table", {
-            "id": "table",
-            "children": [...rows]
-            })
-        ]
-    }))
+    informations.innerHTML = ""
+    informations.append(CreatePassport(program))
 }
 
 function deleteForm(e){
@@ -1030,18 +989,31 @@ function checkAddProgramForm(){
     let docum = document.querySelector('[name="Document"]').value
     let requirement = document.querySelector('[name="Requirement"]').value
     let file = document.querySelector('[name="File"]')
+    let file_name
 
     let text = ""
   
     if (title == "" || level  == "" || type == "" || direction == "" ||
         forma == "" || size == "" || length == "" || price == "" ||
         place == "" || min_grup_size == "" || docum == "" ||
-        requirement == "" || file.value == ""){
+        requirement == ""){
         text += "Есть пустые поля!"
     }
 
     if (text == ""){
-       let otv = Send("POST", "/api/addProgram", {
+        if (file.files[0]){
+            file_name = file.files[0].name
+            Upload(file.files, (res) => {
+                if (res == null){
+                    update()
+                }else{
+                    text += "Не удалось загрузить файл"
+                }
+            })
+        }else{
+            file_name = null
+        }
+        Send("POST", "/api/addProgram", {
             Title: title, 
             Level: level, 
             Type: type, 
@@ -1055,15 +1027,8 @@ function checkAddProgramForm(){
             Start_date: start_date,
             Docum: docum,
             Requirement: requirement,
-            Plan: file.files[0].name
+            Plan: file_name
         })
-        Upload(file.files, (res) => {
-            if (res == null){
-                update()
-            }else{
-                text += "Не удалось загрузить файл"
-            }
-        });
         deleteForm()
     }else{alert(text)}
 }

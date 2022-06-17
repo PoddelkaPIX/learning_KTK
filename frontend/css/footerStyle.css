@@ -13,8 +13,8 @@ footer #contacts {
   text-align: left;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 33% 33% 33%;
-      grid-template-columns: 33% 33% 33%;
+  -ms-grid-columns: 32% 32% 32%;
+      grid-template-columns: 32% 32% 32%;
   grid-gap: 25px;
 }
 

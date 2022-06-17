@@ -98,3 +98,53 @@ function Upload(files, callback) {
     }
     xhr.send(data);
 }
+
+function CreatePassport(program){
+    let params = {
+        "Уровень программы": program.Level, 
+        "Вид программы": program.Type,
+        "Направление обучения": program.Direction, 
+        "Форма обучения": program.Training_form,
+        "Объем программы": program.Size, 
+        "Длительность программы": program.Length,
+        "Стоимость обучения": program.Price, 
+        "Место реализации программы": program.Place,
+        "Минимальный размер группы": program.Minimum_group_size, 
+        "Начало занятий": "По мере набора группы",
+        "Выдаваемый документ": program.Issued_document,
+        "Требования к слушателям": program.Requirement,
+    }
+    let rows = []
+    let planLink
+    
+    if (program.Plan == ""){
+        planLink = Block("a", {"textContent": "Дополнительная информация отсутствует"})
+    }else{
+        planLink = Block("a", {"textContent": "Учебный план", "href": "/aboutProgram/"+program.Id})
+    }
+    for ( let i in params){
+        rows.push(Block("tr", {
+                    "children": [
+                        Block("td", {"textContent": i}),
+                        Block("td", {"textContent": params[i]})
+                    ]}
+                ))
+    }
+
+    rows.push(Block("tr", {"children":[
+        Block("td", {"textContent": "О программе"}),
+        Block("td", {"children": [
+            planLink
+        ]})
+    ]}))
+    return Block("div", {
+        "className": "passport",
+        "children":[
+            Block("h2", {"textContent": program.Title}),
+            Block("table", {
+            "id": "table",
+            "children": [...rows]
+            })
+        ]
+    })
+}

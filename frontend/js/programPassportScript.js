@@ -18,81 +18,11 @@ let params = {
     "О программе": ""
 }
 
-document.getElementById("page").append(
+document.getElementById("main").append(
     Block("div", {
         "id": "passport",
         "children": [
-            Block("h2", {"textContent": program.Title}),
-            Block("table", {
-            "id": "table",
-            "children": [
-                Block("tr", {
-                "children": [
-                    Block("td", {"textContent": "Уровень программы"}),
-                    Block("td", {"textContent": program.Level})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Вид программы"}),
-                        Block("td", {"textContent": program.Type})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Направление обучения"}),
-                        Block("td", {"textContent": program.Direction})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Форма обучения"}),
-                        Block("td", {"textContent": program.Training_form})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Объем программы"}),
-                        Block("td", {"textContent": program.Size})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Длительность программы"}),
-                        Block("td", {"textContent": program.Length})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Стоимость обучения"}),
-                        Block("td", {"textContent": program.Price})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Место реализации программы"}),
-                        Block("td", {"textContent": program.Place})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Минимальный размер группы" }),
-                        Block("td", {"textContent": program.Minimum_group_size})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Начало занятий"}),
-                        Block("td", {"textContent": "По мере набора группы"})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent":  "Выдаваемый документ"}),
-                        Block("td", {"textContent": program.Issued_document})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "Требования к слушателям"}),
-                        Block("td", {"textContent": program.Requirement})
-                ]}),
-                Block("tr", {
-                    "children": [
-                        Block("td", {"textContent": "О программе"}),
-                        Block("td", {"children": [Block("a", {"textContent": "Учебный план", "href": "/aboutProgram/"+program.Id})]})
-                ]}),
-            ]
-        }),
+            CreatePassport(program),
             Block("input", {
                 "dataset": {"Title": program.Title, "Id": program.Id, "Status": "1"},
                 "id": "subscribe_but",

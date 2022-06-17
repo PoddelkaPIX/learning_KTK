@@ -7,17 +7,17 @@
     <title>Главная</title>
 </head>
 <body>
-   <div class="page">
-    {{ template "header" .}}
-    <div id="main">
-        <div id="filters"></div>
-        <h1 style="margin-left: 10%;">Программы обучения: </h1>
-        <div id="programList"></div>
+   <div id="page">
+        {{ template "header" .}}
+        <div id="main">
+            <div id="filters"></div>
+            <h1 style="margin-left: 10%;">Программы обучения: </h1>
+            <div id="programList"></div>
+        </div>
+        {{ template "footer"}}
     </div>
-     {{ template "footer"}}
-     <script src="/js/general.js"></script>
-     <script src="/js/registrationFormScript.js"></script>
-     <script src="/js/homePageScript.js"></script>
-   </div>
+    <script src="/js/general.js"></script>
+    <script src="/js/registrationFormScript.js"></script>
+    <script src="/js/homePageScript.js"></script>
 </body>
 </html>
