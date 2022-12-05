@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"learning/backend/db"
 	"learning/backend/utils"
 	"net/http"
@@ -201,6 +202,7 @@ func queryLoginAdmin(c *gin.Context) {
 	if e != nil {
 		utils.Logger.Println(e)
 	}
+	fmt.Println(password)
 	db.Link.QueryRow(`SELECT EXISTS(SELECT "Id" FROM "Admin" WHERE "Login" = $1 AND "Password" = $2)`, login, password).Scan(&res)
 	if !res {
 		c.Redirect(http.StatusFound, "/adminLogin")
